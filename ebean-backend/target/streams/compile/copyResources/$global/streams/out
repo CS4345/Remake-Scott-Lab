@@ -1,0 +1,7 @@
+[debug] Copy resource mappings: 
+[debug] 	(C:\Users\dalla\Documents\Lab-2-Ebean\Lab-2-Ebean\ebean-backend\conf\application.conf,C:\Users\dalla\Documents\Lab-2-Ebean\Lab-2-Ebean\ebean-backend\target\scala-2.11\classes\application.conf)
+[debug] 	(C:\Users\dalla\Documents\Lab-2-Ebean\Lab-2-Ebean\ebean-backend\conf\evolutions,C:\Users\dalla\Documents\Lab-2-Ebean\Lab-2-Ebean\ebean-backend\target\scala-2.11\classes\evolutions)
+[debug] 	(C:\Users\dalla\Documents\Lab-2-Ebean\Lab-2-Ebean\ebean-backend\conf\logback.xml,C:\Users\dalla\Documents\Lab-2-Ebean\Lab-2-Ebean\ebean-backend\target\scala-2.11\classes\logback.xml)
+[debug] 	(C:\Users\dalla\Documents\Lab-2-Ebean\Lab-2-Ebean\ebean-backend\conf\routes,C:\Users\dalla\Documents\Lab-2-Ebean\Lab-2-Ebean\ebean-backend\target\scala-2.11\classes\routes)
+[debug] 	(C:\Users\dalla\Documents\Lab-2-Ebean\Lab-2-Ebean\ebean-backend\conf\evolutions\default,C:\Users\dalla\Documents\Lab-2-Ebean\Lab-2-Ebean\ebean-backend\target\scala-2.11\classes\evolutions\default)
+[debug] 	(C:\Users\dalla\Documents\Lab-2-Ebean\Lab-2-Ebean\ebean-backend\conf\evolutions\default\1.sql,C:\Users\dalla\Documents\Lab-2-Ebean\Lab-2-Ebean\ebean-backend\target\scala-2.11\classes\evolutions\default\1.sql)
