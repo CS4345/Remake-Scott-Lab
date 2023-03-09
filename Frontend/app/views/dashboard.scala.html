@@ -89,12 +89,13 @@
         }
 
         .position-list {
-            max-height: 65vh;
+            flex-grow: 1;
             overflow-y: scroll;
         }
 
         .jobs-container {
             width: 70%;
+            height: 100%;
             background-color: #fff;
             border-radius: 1.75rem;
             flex: 1;
@@ -112,12 +113,18 @@
             margin-left: 2%;
         }
 
-        .model-header {
+        .modal-header {
             font-size: 24px;
             font-weight: bold;
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        .modal-content {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .user-modal {
@@ -161,7 +168,7 @@
 
         #position-card {
             width: 98%;
-            height: 100%;
+            height: 30%;
             padding: 5px;
             border-radius: 10px;
             display: flex;
@@ -169,7 +176,7 @@
             align-items: center;
             border: 0.5px solid black;
             box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-            overflow-y: scroll;
+            overflow-y: hidden;
         }
     </style>
 </head>
@@ -202,7 +209,6 @@
                         display: flex;
                         flex: 1;
                         justify-content: space-between;
-                        height: 100%;
                         padding-right: 24px;
                     ">
                     <h4>Featured Positions</h4>
@@ -225,10 +231,10 @@
 
     <div class="paper-modal-overlay">
         <div class="paper-modal">
-            <div class="model-header">
+            <div class="modal-header">
                 Edit Profile
             </div>
-            <div class="model-content">
+            <div class="modal-content">
                 <form action="@routes.HomeController.updateHandler()" method="GET">
 
                     <div class="row">

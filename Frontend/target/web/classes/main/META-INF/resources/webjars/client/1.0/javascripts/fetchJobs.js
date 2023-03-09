@@ -45,7 +45,7 @@ const jobData = [
 const positionList = document.getElementById('position-list');
 const jobCards = jobData.map(job => `
     <div id="position-card" class="position-card">
-        <img src=${job.image} jsaction="load:XAeZkd;" jsname="HiaYvf" class="n3VNCb pT0Scc KAlRDb" alt="Southern Methodist University: Home of the Mustangs" data-noaft="1" style="width: 128px; height: 128px; margin: 0px;">
+        <img src=${job.image} alt="Southern Methodist University: Home of the Mustangs" data-noaft="1" style="width: 128px; height: 128px; margin: 0px;">
         <div id="job-description" class="job-description" style="
             display: flex;
             flex-direction: column;
