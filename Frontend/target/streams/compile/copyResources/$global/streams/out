@@ -1,4 +1,4 @@
 [debug] Copy resource mappings: 
-[debug] 	(/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/Frontend/conf/logback.xml,/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/Frontend/target/scala-2.12/classes/logback.xml)
-[debug] 	(/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/Frontend/conf/application.conf,/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/Frontend/target/scala-2.12/classes/application.conf)
-[debug] 	(/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/Frontend/conf/routes,/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/Frontend/target/scala-2.12/classes/routes)
+[debug] 	(C:\Users\dalla\Documents\Lab-2-Ebean\Lab-2-Ebean\Frontend\conf\application.conf,C:\Users\dalla\Documents\Lab-2-Ebean\Lab-2-Ebean\Frontend\target\scala-2.12\classes\application.conf)
+[debug] 	(C:\Users\dalla\Documents\Lab-2-Ebean\Lab-2-Ebean\Frontend\conf\logback.xml,C:\Users\dalla\Documents\Lab-2-Ebean\Lab-2-Ebean\Frontend\target\scala-2.12\classes\logback.xml)
+[debug] 	(C:\Users\dalla\Documents\Lab-2-Ebean\Lab-2-Ebean\Frontend\conf\routes,C:\Users\dalla\Documents\Lab-2-Ebean\Lab-2-Ebean\Frontend\target\scala-2.12\classes\routes)

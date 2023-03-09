@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/ebean-backend/conf/routes
-// @DATE:Wed Mar 08 23:34:17 CST 2023
+// @SOURCE:C:/Users/dalla/Documents/Lab-2-Ebean/Lab-2-Ebean/ebean-backend/conf/routes
+// @DATE:Thu Mar 09 11:18:51 CST 2023
 
 
 package router {

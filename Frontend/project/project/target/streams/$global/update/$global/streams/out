@@ -1,4 +1,4 @@
-[info] Updating {file:/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/Frontend/project/project/}frontend-build-build...
+[info] Updating {file:/C:/Users/dalla/Documents/Lab-2-Ebean/Lab-2-Ebean/Frontend/project/project/}frontend-build-build...
 [debug] :: resolving dependencies :: default#frontend-build-build;0.1-SNAPSHOT
 [debug] 	confs: [compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool]
 [debug] 	validate = true
@@ -6009,19 +6009,19 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#template-resolver;0.1!template-resolver.jar
 [debug] 	[NOT REQUIRED] org.scala-lang#jline;2.10.7!jline.jar
 [debug] 	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar
-[debug] :: resolution report :: resolve 1995ms :: artifacts dl 34ms
-[debug] 	report for default#frontend-build-build;0.1-SNAPSHOT compile produced in /Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/Frontend/project/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-frontend-build-build-compile.xml
-[debug] 	report for default#frontend-build-build;0.1-SNAPSHOT runtime produced in /Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/Frontend/project/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-frontend-build-build-runtime.xml
-[debug] 	report for default#frontend-build-build;0.1-SNAPSHOT test produced in /Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/Frontend/project/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-frontend-build-build-test.xml
-[debug] 	report for default#frontend-build-build;0.1-SNAPSHOT provided produced in /Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/Frontend/project/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-frontend-build-build-provided.xml
-[debug] 	report for default#frontend-build-build;0.1-SNAPSHOT optional produced in /Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/Frontend/project/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-frontend-build-build-optional.xml
-[debug] 	report for default#frontend-build-build;0.1-SNAPSHOT compile-internal produced in /Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/Frontend/project/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-frontend-build-build-compile-internal.xml
-[debug] 	report for default#frontend-build-build;0.1-SNAPSHOT runtime-internal produced in /Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/Frontend/project/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-frontend-build-build-runtime-internal.xml
-[debug] 	report for default#frontend-build-build;0.1-SNAPSHOT test-internal produced in /Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/Frontend/project/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-frontend-build-build-test-internal.xml
-[debug] 	report for default#frontend-build-build;0.1-SNAPSHOT plugin produced in /Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/Frontend/project/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-frontend-build-build-plugin.xml
-[debug] 	report for default#frontend-build-build;0.1-SNAPSHOT sources produced in /Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/Frontend/project/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-frontend-build-build-sources.xml
-[debug] 	report for default#frontend-build-build;0.1-SNAPSHOT docs produced in /Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/Frontend/project/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-frontend-build-build-docs.xml
-[debug] 	report for default#frontend-build-build;0.1-SNAPSHOT pom produced in /Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/Frontend/project/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-frontend-build-build-pom.xml
-[debug] 	report for default#frontend-build-build;0.1-SNAPSHOT scala-tool produced in /Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/Frontend/project/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-frontend-build-build-scala-tool.xml
-[debug] 	resolve done (1995ms resolve - 34ms download)
+[debug] :: resolution report :: resolve 1096ms :: artifacts dl 38ms
+[debug] 	report for default#frontend-build-build;0.1-SNAPSHOT compile produced in C:\Users\dalla\Documents\Lab-2-Ebean\Lab-2-Ebean\Frontend\project\project\target\scala-2.10\sbt-0.13\resolution-cache\reports\default-frontend-build-build-compile.xml
+[debug] 	report for default#frontend-build-build;0.1-SNAPSHOT runtime produced in C:\Users\dalla\Documents\Lab-2-Ebean\Lab-2-Ebean\Frontend\project\project\target\scala-2.10\sbt-0.13\resolution-cache\reports\default-frontend-build-build-runtime.xml
+[debug] 	report for default#frontend-build-build;0.1-SNAPSHOT test produced in C:\Users\dalla\Documents\Lab-2-Ebean\Lab-2-Ebean\Frontend\project\project\target\scala-2.10\sbt-0.13\resolution-cache\reports\default-frontend-build-build-test.xml
+[debug] 	report for default#frontend-build-build;0.1-SNAPSHOT provided produced in C:\Users\dalla\Documents\Lab-2-Ebean\Lab-2-Ebean\Frontend\project\project\target\scala-2.10\sbt-0.13\resolution-cache\reports\default-frontend-build-build-provided.xml
+[debug] 	report for default#frontend-build-build;0.1-SNAPSHOT optional produced in C:\Users\dalla\Documents\Lab-2-Ebean\Lab-2-Ebean\Frontend\project\project\target\scala-2.10\sbt-0.13\resolution-cache\reports\default-frontend-build-build-optional.xml
+[debug] 	report for default#frontend-build-build;0.1-SNAPSHOT compile-internal produced in C:\Users\dalla\Documents\Lab-2-Ebean\Lab-2-Ebean\Frontend\project\project\target\scala-2.10\sbt-0.13\resolution-cache\reports\default-frontend-build-build-compile-internal.xml
+[debug] 	report for default#frontend-build-build;0.1-SNAPSHOT runtime-internal produced in C:\Users\dalla\Documents\Lab-2-Ebean\Lab-2-Ebean\Frontend\project\project\target\scala-2.10\sbt-0.13\resolution-cache\reports\default-frontend-build-build-runtime-internal.xml
+[debug] 	report for default#frontend-build-build;0.1-SNAPSHOT test-internal produced in C:\Users\dalla\Documents\Lab-2-Ebean\Lab-2-Ebean\Frontend\project\project\target\scala-2.10\sbt-0.13\resolution-cache\reports\default-frontend-build-build-test-internal.xml
+[debug] 	report for default#frontend-build-build;0.1-SNAPSHOT plugin produced in C:\Users\dalla\Documents\Lab-2-Ebean\Lab-2-Ebean\Frontend\project\project\target\scala-2.10\sbt-0.13\resolution-cache\reports\default-frontend-build-build-plugin.xml
+[debug] 	report for default#frontend-build-build;0.1-SNAPSHOT sources produced in C:\Users\dalla\Documents\Lab-2-Ebean\Lab-2-Ebean\Frontend\project\project\target\scala-2.10\sbt-0.13\resolution-cache\reports\default-frontend-build-build-sources.xml
+[debug] 	report for default#frontend-build-build;0.1-SNAPSHOT docs produced in C:\Users\dalla\Documents\Lab-2-Ebean\Lab-2-Ebean\Frontend\project\project\target\scala-2.10\sbt-0.13\resolution-cache\reports\default-frontend-build-build-docs.xml
+[debug] 	report for default#frontend-build-build;0.1-SNAPSHOT pom produced in C:\Users\dalla\Documents\Lab-2-Ebean\Lab-2-Ebean\Frontend\project\project\target\scala-2.10\sbt-0.13\resolution-cache\reports\default-frontend-build-build-pom.xml
+[debug] 	report for default#frontend-build-build;0.1-SNAPSHOT scala-tool produced in C:\Users\dalla\Documents\Lab-2-Ebean\Lab-2-Ebean\Frontend\project\project\target\scala-2.10\sbt-0.13\resolution-cache\reports\default-frontend-build-build-scala-tool.xml
+[debug] 	resolve done (1096ms resolve - 38ms download)
 [info] Done updating.
