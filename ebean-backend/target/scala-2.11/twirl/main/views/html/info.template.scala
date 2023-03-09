@@ -63,10 +63,10 @@ Seq[Any](format.raw/*1.29*/("""
 object info extends info_Scope0.info
               /*
                   -- GENERATED --
-                  DATE: Wed Mar 08 21:02:26 CST 2023
-                  SOURCE: /Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/ebean-backend/app/views/info.scala.html
-                  HASH: e5d7ac998728e820079b20e0f174d3c35279f0e4
-                  MATRIX: 748->1|870->28|897->29|1163->268|1211->300|1251->302|1292->315|1324->320|1356->331|1402->346|1434->351
+                  DATE: Thu Mar 09 11:18:52 CST 2023
+                  SOURCE: C:/Users/dalla/Documents/Lab-2-Ebean/Lab-2-Ebean/ebean-backend/app/views/info.scala.html
+                  HASH: 0ee6453ed4869595c412311d159d4c01c524742e
+                  MATRIX: 748->1|870->28|898->30|1173->278|1221->310|1261->312|1303->326|1335->331|1367->342|1414->358|1447->364
                   LINES: 27->1|32->1|33->2|42->11|42->11|42->11|43->12|43->12|43->12|44->13|45->14
                   -- GENERATED --
               */
