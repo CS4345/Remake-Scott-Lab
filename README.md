@@ -1,9 +1,9 @@
 # Remake-Scott-Lab
 
-# 1. Fix starting semester when choose status student
+# 1. Fix starting semester when choose status student - Scott
 ![image](https://user-images.githubusercontent.com/85500156/223956465-490119b7-925b-4c26-9364-888a52162381.png)
 
-# 2. Profile view after filled out:
+# 2. Profile view after filled out - Rich
 
 After the user filled out -> I have set up the backend to update and it will show a different view. Our goal is to show some basic information such as
 ** an avatar (Can be a placeholder for now)
