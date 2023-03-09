@@ -14,3 +14,6 @@ POST    /signup                      controllers.UserController.registerNew()
 
 GET     /info                        controllers.HomeController.info()
 
+# Update User Account Completion Status {"shouldUpdate": true/false}
+GET /users/getAccountStatus controllers.UserController.checkUpdateStatus()
+

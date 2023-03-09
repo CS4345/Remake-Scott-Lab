@@ -95,4 +95,34 @@ public class UserController extends Controller {
         return ok(result);
     }
 
+    // Add by Eric
+    public Result checkUpdateStatus() {
+        System.out.print("Checking account completion status for: ");
+
+        // Retrieve the value of the "name" parameter
+        String username = request().getQueryString("username");
+        System.out.println(username); // Outputs: Username
+
+        if (username == null) {
+            return ok("Empty username");
+        }
+
+        ObjectNode result = null;
+        try {
+            // Retrieve the account
+            User u = User.findByUsername(username);
+            if (u != null) {
+                result = Json.newObject();
+
+                boolean updateStatus = User.isCompletedProfile(u);
+
+                System.out.println("Status: "+ updateStatus);
+                // Put the status
+                result.put("updateStatus", updateStatus);
+            }
+        } catch (Exception e) {
+            ok("Failed to validate");
+        }
+        return ok(result);
+    }
 }

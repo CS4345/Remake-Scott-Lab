@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/dalla/Documents/Lab-2-Ebean/Lab-2-Ebean/ebean-backend/conf/routes
-// @DATE:Wed Mar 01 16:25:52 CST 2023
+// @DATE:Wed Mar 08 17:05:34 CST 2023
 
 package router
 
@@ -47,6 +47,7 @@ class Routes(
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """login""", """controllers.UserController.authenticate()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """signup""", """controllers.UserController.registerNew()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """info""", """controllers.HomeController.info()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """users/getAccountStatus""", """controllers.UserController.checkUpdateStatus()"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -122,6 +123,23 @@ class Routes(
     )
   )
 
+  // @LINE:18
+  private[this] lazy val controllers_UserController_checkUpdateStatus4_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("users/getAccountStatus")))
+  )
+  private[this] lazy val controllers_UserController_checkUpdateStatus4_invoker = createInvoker(
+    UserController_1.checkUpdateStatus(),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.UserController",
+      "checkUpdateStatus",
+      Nil,
+      "GET",
+      """ Update User Account Completion Status {"shouldUpdate": true/false}""",
+      this.prefix + """users/getAccountStatus"""
+    )
+  )
+
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
@@ -147,6 +165,12 @@ class Routes(
     case controllers_HomeController_info3_route(params) =>
       call { 
         controllers_HomeController_info3_invoker.call(HomeController_0.info())
+      }
+  
+    // @LINE:18
+    case controllers_UserController_checkUpdateStatus4_route(params) =>
+      call { 
+        controllers_UserController_checkUpdateStatus4_invoker.call(UserController_1.checkUpdateStatus())
       }
   }
 }

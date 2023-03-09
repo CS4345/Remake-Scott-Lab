@@ -1,6 +1,99 @@
-2023-03-03 12:38:37,660 [INFO] from application in ForkJoinPool-1-worker-9 - Creating Pool for datasource 'default'
-2023-03-03 12:38:37,868 [INFO] from play.api.db.DefaultDBApi in ForkJoinPool-1-worker-9 - Database [default] connected at jdbc:mysql://localhost:3306/CS4345?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-2023-03-03 12:38:38,554 [INFO] from play.api.Play in ForkJoinPool-1-worker-9 - Application started (Dev)
-2023-03-03 16:29:02,691 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h1m54s48ms507µs700ns).
-2023-03-05 12:57:39,856 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1d20h28m44s155ms191µs800ns).
-2023-03-05 16:23:08,581 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h15m32s215ms899µs200ns).
+2023-03-08 17:57:50,600 [INFO] from application in ForkJoinPool-1-worker-9 - Creating Pool for datasource 'default'
+2023-03-08 17:57:50,841 [INFO] from play.api.db.DefaultDBApi in ForkJoinPool-1-worker-9 - Database [default] connected at jdbc:mysql://localhost:3306/CS4345?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+2023-03-08 17:57:51,603 [INFO] from play.api.Play in ForkJoinPool-1-worker-9 - Application started (Dev)
+2023-03-08 18:03:59,061 [INFO] from application in application-akka.actor.default-dispatcher-9 - Shutting down connection pool.
+2023-03-08 18:03:59,183 [INFO] from application in application-akka.actor.default-dispatcher-9 - Creating Pool for datasource 'default'
+2023-03-08 18:03:59,216 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-9 - Database [default] connected at jdbc:mysql://localhost:3306/CS4345?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+2023-03-08 18:03:59,302 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-9 - Application started (Dev)
+2023-03-08 18:04:53,108 [INFO] from application in application-akka.actor.default-dispatcher-2 - Shutting down connection pool.
+2023-03-08 18:04:53,288 [INFO] from application in application-akka.actor.default-dispatcher-2 - Creating Pool for datasource 'default'
+2023-03-08 18:04:53,337 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-2 - Database [default] connected at jdbc:mysql://localhost:3306/CS4345?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+2023-03-08 18:04:53,441 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-2 - Application started (Dev)
+2023-03-08 18:05:04,889 [INFO] from application in application-akka.actor.default-dispatcher-3 - Shutting down connection pool.
+2023-03-08 18:05:04,965 [INFO] from application in application-akka.actor.default-dispatcher-3 - Creating Pool for datasource 'default'
+2023-03-08 18:05:05,004 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-3 - Database [default] connected at jdbc:mysql://localhost:3306/CS4345?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+2023-03-08 18:05:05,082 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-3 - Application started (Dev)
+2023-03-08 18:08:14,863 [INFO] from application in application-akka.actor.default-dispatcher-7 - Shutting down connection pool.
+2023-03-08 18:08:14,940 [INFO] from application in application-akka.actor.default-dispatcher-7 - Creating Pool for datasource 'default'
+2023-03-08 18:08:14,972 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-7 - Database [default] connected at jdbc:mysql://localhost:3306/CS4345?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+2023-03-08 18:08:15,056 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-7 - Application started (Dev)
+2023-03-08 18:10:17,282 [ERROR] from application in netty-event-loop-12 - 
+
+! @80ooamif2 - Internal server error, for (POST) [/login] ->
+ 
+play.sbt.PlayExceptions$CompilationException: Compilation error[cannot find symbol
+  symbol:   variable result
+  location: class controllers.UserController]
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
+	at scala.Option.map(Option.scala:145)
+	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:49)
+	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:44)
+	at scala.Option.map(Option.scala:145)
+	at play.sbt.run.PlayReload$.taskFailureHandler(PlayReload.scala:44)
+	at play.sbt.run.PlayReload$.compileFailure(PlayReload.scala:40)
+	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
+	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
+	at scala.util.Either$LeftProjection.map(Either.scala:377)
+	at play.sbt.run.PlayReload$.compile(PlayReload.scala:17)
+	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$2.apply(PlayRun.scala:61)
+	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$2.apply(PlayRun.scala:61)
+	at play.runsupport.Reloader$$anonfun$reload$1.apply(Reloader.scala:339)
+	at play.runsupport.Reloader$$anon$3.run(Reloader.scala:44)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at play.runsupport.Reloader$.play$runsupport$Reloader$$withReloaderContextClassLoader(Reloader.scala:40)
+	at play.runsupport.Reloader.reload(Reloader.scala:337)
+	at play.core.server.DevServerStart$$anonfun$mainDev$1$$anon$1$$anonfun$get$1.apply(DevServerStart.scala:123)
+	at play.core.server.DevServerStart$$anonfun$mainDev$1$$anon$1$$anonfun$get$1.apply(DevServerStart.scala:121)
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24)
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:39)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:415)
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+2023-03-08 18:10:29,111 [ERROR] from application in netty-event-loop-13 - 
+
+! @80ooana3a - Internal server error, for (POST) [/login] ->
+ 
+play.sbt.PlayExceptions$CompilationException: Compilation error[cannot find symbol
+  symbol:   variable result
+  location: class controllers.UserController]
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
+	at scala.Option.map(Option.scala:145)
+	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:49)
+	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:44)
+	at scala.Option.map(Option.scala:145)
+	at play.sbt.run.PlayReload$.taskFailureHandler(PlayReload.scala:44)
+	at play.sbt.run.PlayReload$.compileFailure(PlayReload.scala:40)
+	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
+	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
+	at scala.util.Either$LeftProjection.map(Either.scala:377)
+	at play.sbt.run.PlayReload$.compile(PlayReload.scala:17)
+	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$2.apply(PlayRun.scala:61)
+	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$2.apply(PlayRun.scala:61)
+	at play.runsupport.Reloader$$anonfun$reload$1.apply(Reloader.scala:339)
+	at play.runsupport.Reloader$$anon$3.run(Reloader.scala:44)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at play.runsupport.Reloader$.play$runsupport$Reloader$$withReloaderContextClassLoader(Reloader.scala:40)
+	at play.runsupport.Reloader.reload(Reloader.scala:337)
+	at play.core.server.DevServerStart$$anonfun$mainDev$1$$anon$1$$anonfun$get$1.apply(DevServerStart.scala:123)
+	at play.core.server.DevServerStart$$anonfun$mainDev$1$$anon$1$$anonfun$get$1.apply(DevServerStart.scala:121)
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24)
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:39)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:415)
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+2023-03-08 18:10:49,402 [INFO] from application in application-akka.actor.default-dispatcher-5 - Shutting down connection pool.
+2023-03-08 18:10:49,467 [INFO] from application in application-akka.actor.default-dispatcher-5 - Creating Pool for datasource 'default'
+2023-03-08 18:10:49,494 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-5 - Database [default] connected at jdbc:mysql://localhost:3306/CS4345?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+2023-03-08 18:10:49,571 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-5 - Application started (Dev)
+2023-03-08 18:15:07,873 [INFO] from application in application-akka.actor.default-dispatcher-2 - Shutting down connection pool.
+2023-03-08 18:15:07,929 [INFO] from application in application-akka.actor.default-dispatcher-2 - Creating Pool for datasource 'default'
+2023-03-08 18:15:07,952 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-2 - Database [default] connected at jdbc:mysql://localhost:3306/CS4345?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+2023-03-08 18:15:08,021 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-2 - Application started (Dev)

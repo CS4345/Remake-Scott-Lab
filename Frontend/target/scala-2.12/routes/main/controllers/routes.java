@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/dalla/Documents/Lab-2-Ebean/Lab-2-Ebean/Frontend/conf/routes
-// @DATE:Fri Jan 27 14:16:32 CST 2023
+// @DATE:Wed Mar 08 17:29:04 CST 2023
 
 package controllers;
 

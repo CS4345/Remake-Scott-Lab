@@ -54,7 +54,11 @@ public class HomeController extends Controller {
                         // add username to session
                         session("password",loginForm.get().getPosition());   // store username in session for your project
                         // redirect to index page, to display all categories
-                        return ok(views.html.index.render("Welcome!!! " + loginForm.get().getFirstname()));
+
+                        // Add by Eric
+                        String username = loginForm.get().getUsername();
+                        System.out.println("Username: " + username);
+                        return ok(views.html.dashboard.render(username));
                     } else {
                         System.out.println("response null");
                         String authorizeMessage = "Incorrect Username or Password ";

@@ -60,4 +60,23 @@ public class User extends Model {
                 .eq("username", name)
                 .findUnique();
     }
+
+    // Add by eric
+    public static User findByUsername(String username) {
+        return User.find
+                .where()
+                .eq("username", username)
+                .findUnique();
+    }
+
+    // Add by eric
+    public static boolean isCompletedProfile(User u) {
+        // Check for any empty variables
+        return u.username == null || u.password == null || u.firstname == null ||
+                u.lastname == null || u.researchArea == null || u.title == null ||
+                u.position == null || u.affiliation == null || u.email == null ||
+                u.phone == null || u.fax == null || u.address == null || u.city == null ||
+                u.country == null || u.zipcode == null || u.comments == null ||
+                u.status == null;
+    }
 }

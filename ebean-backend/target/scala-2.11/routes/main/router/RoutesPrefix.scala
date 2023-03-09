@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/dalla/Documents/Lab-2-Ebean/Lab-2-Ebean/ebean-backend/conf/routes
-// @DATE:Wed Mar 01 16:25:52 CST 2023
+// @DATE:Wed Mar 08 17:05:34 CST 2023
 
 
 package router {
