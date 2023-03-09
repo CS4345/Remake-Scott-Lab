@@ -52,4 +52,6 @@ Please submit your application to this open TA position using the form below. No
 
 Resume (to upload in PDF)
 
+# 4. (From Canvas): For each use case, apply OOA methodology to produce use case diagram, class diagram, sequence diagram, and maybe also communication diagram. - Rich
+
 # 5. (From Canvas): For each use case, apply OOA methodology to produce use case diagram, class diagram, sequence diagram, and maybe also communication diagram.
