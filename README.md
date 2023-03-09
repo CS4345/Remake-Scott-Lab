@@ -1,6 +1,6 @@
 # Remake-Scott-Lab
 
-# 1. Fix starting semester when choose status student - Scott
+# 1. Fix starting semester when choose status student - Scott (Done)
 ![image](https://user-images.githubusercontent.com/85500156/223956465-490119b7-925b-4c26-9364-888a52162381.png)
 
 # 2. Profile view after filled out - Rich
