@@ -15,7 +15,7 @@ After the user filled out -> I have set up the backend to update and it will sho
 
 I have implemented the edit profile where it will have an animation to show the modal, you can use the same css styling class to show an apply modal so that:
 
-* (From Canvas):
+## (From Canvas):
 
 * Submit a TA application: Provide a page for students to submit an application to a published TA position:
 
