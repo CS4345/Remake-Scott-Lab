@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/dalla/Documents/Lab-2-Ebean/Lab-2-Ebean/Frontend/conf/routes
-// @DATE:Wed Mar 08 17:29:04 CST 2023
+// @SOURCE:/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/Frontend/conf/routes
+// @DATE:Thu Mar 09 00:38:04 CST 2023
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -19,16 +19,6 @@ package controllers.javascript {
     }
 
   
-    // @LINE:12
-    def signupHandler: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.signupHandler",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "register"})
-        }
-      """
-    )
-  
     // @LINE:10
     def signup: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.signup",
@@ -39,22 +29,42 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:7
-    def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.index",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + """"})
-        }
-      """
-    )
-  
     // @LINE:8
     def loginHandler: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.loginHandler",
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "login"})
+        }
+      """
+    )
+  
+    // @LINE:17
+    def updateHandler: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.updateHandler",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "updateInfo"})
+        }
+      """
+    )
+  
+    // @LINE:12
+    def signupHandler: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.signupHandler",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "register"})
+        }
+      """
+    )
+  
+    // @LINE:7
+    def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.index",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + """"})
         }
       """
     )

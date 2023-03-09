@@ -2,6 +2,7 @@ package controllers;
 
 import play.data.Form;
 import play.data.FormFactory;
+import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.libs.concurrent.HttpExecutionContext;
@@ -9,6 +10,7 @@ import play.libs.ws.WSResponse;
 import views.html.*;
 
 import javax.inject.Inject;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
 /**
@@ -52,13 +54,23 @@ public class HomeController extends Controller {
                     if (r.getStatus() == 200 && r.asJson() != null && r.asJson().asBoolean()) {
                         System.out.println(r.asJson());
                         // add username to session
-                        session("password",loginForm.get().getPosition());   // store username in session for your project
+                        session("username",loginForm.get().getUsername());
+                        String username = loginForm.get().getUsername();
+//                        session("password",loginForm.get().getPosition());   // store username in session for your project
                         // redirect to index page, to display all categories
 
-                        // Add by Eric
-                        String username = loginForm.get().getUsername();
-                        System.out.println("Username: " + username);
-                        return ok(views.html.dashboard.render(username));
+                        CompletableFuture<String> statusFuture = loginForm.get().getAccountStatus(username)
+                                .thenApplyAsync((WSResponse response) -> {
+                                    System.out.println(response.asJson());
+                                    String status = String.valueOf(response.asJson().get("updateStatus"));
+                                    System.out.println("Status: "+ status);
+                                    return status;
+                                }, ec.current())
+                                .toCompletableFuture();
+
+                        String status = statusFuture.join();
+                        return ok(views.html.dashboard.render(status));
+
                     } else {
                         System.out.println("response null");
                         String authorizeMessage = "Incorrect Username or Password ";
@@ -84,6 +96,35 @@ public class HomeController extends Controller {
                         return badRequest(views.html.register.render("Username already exists"));
                     }
                 }, ec.current());
+    }
 
+    public CompletionStage<Result> updateHandler() {
+        String username = session().get("username");
+        System.out.println("Retrieve from session: " + username);
+
+        Form<User> updateProfileForm = formFactory.form(User.class).bindFromRequest();
+        if (updateProfileForm.hasErrors()){
+            return (CompletionStage<Result>) badRequest(views.html.register.render(null));
+        }
+
+        return updateProfileForm.get().updateUser(username)
+                .thenApplyAsync((WSResponse r) -> {
+                    if (r.getStatus() == 200 && r.asJson() != null) {
+                        CompletableFuture<String> statusFuture = User.getAccountStatus(username)
+                                .thenApplyAsync((WSResponse response) -> {
+                                    System.out.println(response.asJson());
+                                    String status = String.valueOf(response.asJson().get("updateStatus"));
+                                    System.out.println("Status: "+ status);
+                                    return status;
+                                }, ec.current())
+                                .toCompletableFuture();
+
+                        String status = statusFuture.join();
+                        return ok(views.html.dashboard.render(status));
+                    } else {
+                        System.out.println("response null");
+                        return ok(views.html.dashboard.render("nil"));
+                    }
+                }, ec.current());
     }
 }

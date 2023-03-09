@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/dalla/Documents/Lab-2-Ebean/Lab-2-Ebean/ebean-backend/conf/routes
-// @DATE:Wed Mar 08 17:05:34 CST 2023
+// @SOURCE:/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/ebean-backend/conf/routes
+// @DATE:Wed Mar 08 23:34:17 CST 2023
 
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
 import play.core.routing.{ HandlerDef, ReverseRouteContext, queryString, dynamicString }
@@ -26,7 +26,7 @@ package controllers {
       Call("GET", _prefix)
     }
   
-    // @LINE:15
+    // @LINE:14
     def info(): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "info")
@@ -41,6 +41,12 @@ package controllers {
     }
 
   
+    // @LINE:20
+    def updateAccount(): Call = {
+      import ReverseRouteContext.empty
+      Call("POST", _prefix + { _defaultPrefix } + "users/update")
+    }
+  
     // @LINE:9
     def authenticate(): Call = {
       import ReverseRouteContext.empty
@@ -53,7 +59,7 @@ package controllers {
       Call("POST", _prefix + { _defaultPrefix } + "signup")
     }
   
-    // @LINE:18
+    // @LINE:17
     def checkUpdateStatus(): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "users/getAccountStatus")

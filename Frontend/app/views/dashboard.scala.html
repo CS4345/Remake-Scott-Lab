@@ -1,42 +1,49 @@
-@(username: String)
+@(status: String)
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Job Dashboard</title>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        <link rel="stylesheet" href="path/to/custom.css">
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <style>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Job Dashboard</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style>
         body {
             overflow-y: hidden;
         }
+
         .paper-modal {
+            height: calc(100vh - 140px);
             background-color: #fff;
-            border-radius: 2px;
+            border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             max-width: 600px;
             margin: 0 auto;
-            top: 10px;
-            overflow-y: auto;
+            overflow-y: scroll;
             position: relative;
             padding: 24px;
             width: calc(100% - 32px);
         }
+
         .paper-modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.6); /* semi-transparent black background */
+            background-color: rgba(0, 0, 0, 0.6);
+            /* semi-transparent black background */
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow-y: scroll; /* enable vertical scrolling */
-            z-index: 100; /* ensure that the overlay is on top of other elements */
+            overflow-y: scroll;
+            /* enable vertical scrolling */
+            z-index: 100;
+            /* ensure that the overlay is on top of other elements */
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.5s ease, visibility 0s linear 0.5s;
@@ -46,10 +53,12 @@
             visibility: visible;
             opacity: 1;
             transition: opacity 0.5s ease, visibility 0s linear 0s;
+            overflow-y: auto;
+            /* add this line */
         }
 
         header {
-            height: 80px;
+            height: 0px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -92,6 +101,7 @@
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             padding: 2%;
         }
+
         .user-container {
             width: calc(100% - 70%);
             height: 100%;
@@ -101,10 +111,15 @@
             padding: 2%;
             margin-left: 2%;
         }
+
         .model-header {
             font-size: 24px;
             font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
+
         .user-modal {
             width: "100%";
             /* background-color: gray; */
@@ -114,6 +129,7 @@
             align-items: center;
             justify-content: center;
         }
+
         #complete-profile-button {
             background-color: #6c63ff;
             color: #fff;
@@ -142,6 +158,7 @@
             background-color: #594dc2;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
         }
+
         #position-card {
             width: 98%;
             height: 100%;
@@ -151,167 +168,292 @@
             flex-direction: row;
             align-items: center;
             border: 0.5px solid black;
-            box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
             overflow-y: scroll;
         }
     </style>
-    </head>
-    <body>
+</head>
 
-        <nav>
-            <div class="nav-wrapper">
-                <a href="#" class="brand-logo center">Job Dashboard</a>
-                <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Applications</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-            </div>
-        </nav>
+<body>
 
-        <ul class="sidenav" id="mobile-menu">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Applications</a></li>
-            <li><a href="#">Contact Us</a></li>
-        </ul>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo center">Job Dashboard</a>
+            <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Applications</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
 
-            <!-- Modal structure for jobs -->
-        <div id="main-container" class="dashboard-main">
-            <div id="jobs-modal" class="jobs-container">
-                <div class="modal-content">
-                    <div id="jobs-post-title" style="
+    <ul class="sidenav" id="mobile-menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Applications</a></li>
+        <li><a href="#">Contact Us</a></li>
+    </ul>
+
+    <!-- Modal structure for jobs -->
+    <div id="main-container" class="dashboard-main">
+        <div id="jobs-modal" class="jobs-container">
+            <div class="modal-content">
+                <div id="jobs-post-title" style="
                         display: flex;
                         flex: 1;
                         justify-content: space-between;
                         height: 100%;
                         padding-right: 24px;
                     ">
-                        <h4>Featured Positions</h4>
-                        <div style="
+                    <h4>Featured Positions</h4>
+                    <div style="
                             display: flex;
                             align-items: center;
                         ">
-                            <button class="apply-general" id="apply-general">Apply</button>
+                        <button class="apply-general" id="apply-general">Apply</button>
+                    </div>
+                </div>
+                <p>List of current job openings here</p>
+                <div id="position-list" class="position-list"></div>
+            </div>
+        </div>
+        <div id="user-modal-container" class="user-container">
+            <h4>Profile</h4>
+            <div class="user-modal" id="user-modal"></div>
+        </div>
+    </div>
+
+    <div class="paper-modal-overlay">
+        <div class="paper-modal">
+            <div class="model-header">
+                Edit Profile
+            </div>
+            <div class="model-content">
+                <form action="@routes.HomeController.updateHandler()" method="GET">
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <select id="researchArea" name="researchArea">
+                                <option value="" disabled selected>Choose your research area</option>
+                                <option value="Algorithm Development">Algorithm Development</option>
+                                <option value="Software Engineering">Software Engineering</option>
+                                <option value="Cyber Security">Cyber Security</option>
+                                <option value="Data Science">Data Science</option>
+                            </select>
+                            <label>Research Area</label>
                         </div>
                     </div>
-                    <p>List of current job openings here</p>
-                    <div id="position-list" class="position-list"></div>
-                </div>
-            </div>
-            <div id="user-modal-container" class="user-container">
-                <h4>Profile</h4>
-                <div class="user-modal" id="user-modal"></div>
-            </div>
-        </div>
-
-        <div class="paper-modal-overlay">
-            <div class="paper-modal">
-                <div class="model-header">
-            Edit Profile
-                </div>
-                <div class="model-content">
-                    <form method="GET">
-
+                    <div class="row">
                         <div class="input-field col s12">
-                            <label for="title">Title</label>
-                            <input type="text" name="title" id="title">
+                            <select id="title" name="title">
+                                <option value="" disabled selected>Title</option>
+                                <option value="Mr">Mr</option>
+                                <option value="Ms">Ms</option>
+                                <option value="Dr">Dr</option>
+                                <option value="Sir">Sir</option>
+                            </select>
+                            <label>Title</label>
                         </div>
-
+                    </div>
+                    <div class="row">
                         <div class="input-field col s12">
-                            <label for="position">Position</label>
-                            <input type="text" name="position" id="position">
+                            <select id="position" name="position">
+                                <option value="" disabled selected>Select Option</option>
+                                <option value="Professor">Professor</option>
+                                <option value="TA">TA</option>
+                                <option value="Student">Student</option>
+                                <option value="Heisenberg">Heisenberg</option>
+                            </select>
+                            <label>Position</label>
                         </div>
-
+                    </div>
+                    <div class="row">
                         <div class="input-field col s12">
-                            <label for="affiliation">Affiliation</label>
-                            <input type="text" name="affiliation" id="affiliation">
+                            <select id="affiliation" name="affiliation">
+                                <option value="" disabled selected>Select Option</option>
+                                <option value="Southern Methodist University">Southern Methodist University</option>
+                                <option value="Other University">Other University</option>
+                                <option value="Google">Google</option>
+                            </select>
+                            <label>Affiliation</label>
                         </div>
-
+                    </div>
+                    <div class="row">
                         <div class="input-field col s12">
-                            <label for="phone">Phone</label>
-                            <input type="text" name="phone" id="phone">
+
+                            <input id="email" name="email" type="text" class="validate">
+                            <label for="email">Email</label>
                         </div>
-
+                    </div>
+                    <div class="row">
                         <div class="input-field col s12">
+
+                            <input id="phone" name="phone" type="text" class="validate">
+                            <label for="phone">Phone #</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+
+                            <input id="fax" name="fax" type="text" class="validate">
                             <label for="fax">Fax</label>
-                            <input type="text" name="fax" id="fax">
                         </div>
-
+                    </div>
+                    <div class="row">
                         <div class="input-field col s12">
+
+                            <textarea name="address" id="address" cols="20" rows="5"></textarea>
                             <label for="address">Address</label>
-                            <input type="text" name="address" id="address">
                         </div>
-
+                    </div>
+                    <div class="row">
                         <div class="input-field col s12">
+
+                            <input id="city" name="city" type="text" class="validate">
                             <label for="city">City</label>
-                            <input type="text" name="city" id="city">
                         </div>
-
+                    </div>
+                    <div class="row">
                         <div class="input-field col s12">
-                            <label for="countryRegion">Country/Region</label>
-                            <input type="text" name="countryRegion" id="countryRegion">
+                            <select id="country" name="country">
+                                <option value="" disabled selected>Select Option</option>
+                                <option value="United States">United States</option>
+                                <option value="Canada">Canada</option>
+                                <option value="Mexico">Mexico</option>
+                            </select>
+                            <label>Country</label>
                         </div>
-
+                    </div>
+                    <div class="row">
                         <div class="input-field col s12">
-                            <label for="zipcode">Zip Code</label>
-                            <input type="text" name="zipcode" id="zipcode">
+
+                            <input id="zipcode" name="zipcode" type="text" class="validate">
+                            <label for="zipcode">Zipcode</label>
                         </div>
-
+                    </div>
+                    <div class="row">
                         <div class="input-field col s12">
+
+                            <textarea name="comments" id="comments" cols="20" rows="5"></textarea>
                             <label for="comments">Comments</label>
-                            <textarea name="comments" id="comments"></textarea>
                         </div>
-
+                    </div>
+                    <div class="row">
                         <div class="input-field col s12">
-                            <button id="complete-profile-button" type="submit" name="action">Submit</button>
+                            <select id="status" name="status">
+                                <option value="" disabled selected>Select Option</option>
+                                <option value="Faculty">Faculty</option>
+                                <option value="Student">Student</option>
+                                <option value="Staff">Staff</option>
+                            </select>
+                            <label>Status</label>
                         </div>
+                    </div>
+                    <script>
+                        $(document).ready(function () {
+                            $('#status').on('change', function () {
+                                if ($(this).val() == 'Student') {
+                                    $('#degree-plan-field').show();
+                                } else {
+                                    $('#degree-plan-field').hide();
+                                }
+                            });
+                        });
+                    </script>
 
-                    </form>
-                </div>
+                    <div id="degree-plan-field" class="row" style="display: none;">
+                        <div class="input-field col s12">
+                            <select id="degreePlan" name="degreePlan">
+                                <option value="" disabled selected>Select Degree Plan</option>
+                                <option value="Ph.D.">Ph.D.</option>
+                                <option value="D.E.-SE">D.E.-SE</option>
+                                <option value="MS-CS">MS-CS</option>
+                                <option value="MS-SE">MS-SE</option>
+                                <option value="MS-Cybersecurity">MS-Cybersecurity</option>
+                                <option value="BS-CS">BS-CS</option>
+                                <option value="BA-CS">BA-CS</option>
+                            </select>
+                            <label for="degreePlan">Current Degree Plan</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="startingSemester" name="startingSemester" type="text" class="validate">
+                            <label for="startingSemester">Starting Semester of Current Program (Semester, Year)</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="expectedSemester" name="expectedSemester" type="text" class="validate">
+                            <label for="expectedSemester">Expected Semester to Graduate (Semester, Year)</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <select id="coursesTakenBefore" name="coursesTakenBefore[]" multiple>
+                                <option value="" disabled selected>Select Courses Taken Before</option>
+                                <option value="Course1">Course1</option>
+                                <option value="Course2">Course2</option>
+                                <option value="Course3">Course3</option>
+                                <option value="Course4">Course4</option>
+                                <option value="Course5">Course5</option>
+                            </select>
+                            <label for="coursesTakenBefore">Courses Taken Before</label>
+                        </div>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <button id="complete-profile-button" type="submit" name="action">Submit</button>
+                    </div>
+
+                </form>
             </div>
         </div>
-        <script src="assets/javascripts/fetchJobs.js"></script>
-        <script id="profile" src="assets/javascripts/fetchProfileState.js" username=@username> </script>
-        <script>
-    // Get the "Complete Profile" button and the paper modal overlay
-    const applyButton = document.getElementById("apply-general")
-    const completeProfileButton = document.getElementById("complete-profile-button");
-    const paperModalOverlay = document.querySelector(".paper-modal-overlay");
-    const paperModalOverlayApply = document.getElementById("modal-apply")
+    </div>
+    <script src="assets/javascripts/fetchJobs.js"></script>
+    <script>
+        console.log("cai lon ma", @status);
+    </script>
+    <script id="profile" src="assets/javascripts/fetchProfileState.js" status=@status> </script>
+    <script>
+        // Get the "Complete Profile" button and the paper modal overlay
+        const applyButton = document.getElementById("apply-general")
+        const completeProfileButton = document.getElementById("complete-profile-button");
+        const paperModalOverlay = document.querySelector(".paper-modal-overlay");
+        const paperModalOverlayApply = document.getElementById("modal-apply")
 
-    // Hide the paper modal overlay by default
-    paperModalOverlay.style.display = "none";
+        // Hide the paper modal overlay by default
+        paperModalOverlay.style.display = "none";
 
-    // Add a click event listener to the "Complete Profile" button
-    completeProfileButton.addEventListener("click", () => {
-        // Show the paper modal overlay
-        paperModalOverlay.style.display = "flex";
-        setTimeout(() => {
-            paperModalOverlay.classList.add("show");
-        }, 0);
-    });
-
-    // Add a click even listener when user click "Apply" button
-    applyButton.addEventListener("click", () => {
-        // Show the paper modal overaly
-        paperModalOverlayApply.style.display = "flex";
-        setTimeout(() => {
-            paperModalOverlayApply.classList.add("show");
-        }, 0);
-    })
-
-
-    // Add a click event listener to the paper modal overlay
-    paperModalOverlay.addEventListener("click", (event) => {
-        // If the user clicked outside the paper modal, hide the overlay
-        if (event.target === paperModalOverlay) {
-            paperModalOverlay.classList.remove("show");
+        // Add a click event listener to the "Complete Profile" button
+        completeProfileButton.addEventListener("click", () => {
+            // Show the paper modal overlay
+            paperModalOverlay.style.display = "flex";
             setTimeout(() => {
-                paperModalOverlay.style.display = "none";
-            }, 500);
-        }
+                paperModalOverlay.classList.add("show");
+            }, 0);
+        });
+
+        // Add a click even listener when user click "Apply" button
+        applyButton.addEventListener("click", () => {
+            // Show the paper modal overaly
+            paperModalOverlayApply.style.display = "flex";
+            setTimeout(() => {
+                paperModalOverlayApply.classList.add("show");
+            }, 0);
+        })
+
+
+        // Add a click event listener to the paper modal overlay
+        paperModalOverlay.addEventListener("click", (event) => {
+            // If the user clicked outside the paper modal, hide the overlay
+            if (event.target === paperModalOverlay) {
+                paperModalOverlay.classList.remove("show");
+                setTimeout(() => {
+                    paperModalOverlay.style.display = "none";
+                }, 500);
+            }
+        });
+    </script>
+
+</body>
+
+<script>
+    $(document).ready(function () {
+        $('select').formSelect();
     });
 </script>
-
-    </body>

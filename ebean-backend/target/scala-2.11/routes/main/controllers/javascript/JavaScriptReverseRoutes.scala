@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/dalla/Documents/Lab-2-Ebean/Lab-2-Ebean/ebean-backend/conf/routes
-// @DATE:Wed Mar 08 17:05:34 CST 2023
+// @SOURCE:/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/ebean-backend/conf/routes
+// @DATE:Wed Mar 08 23:34:17 CST 2023
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -33,7 +33,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:15
+    // @LINE:14
     def info: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.info",
       """
@@ -52,6 +52,16 @@ package controllers.javascript {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
+  
+    // @LINE:20
+    def updateAccount: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.UserController.updateAccount",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "users/update"})
+        }
+      """
+    )
   
     // @LINE:9
     def authenticate: JavaScriptReverseRoute = JavaScriptReverseRoute(
@@ -73,7 +83,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:18
+    // @LINE:17
     def checkUpdateStatus: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UserController.checkUpdateStatus",
       """

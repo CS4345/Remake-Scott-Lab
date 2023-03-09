@@ -11,9 +11,11 @@ POST     /login                      controllers.UserController.authenticate()
 
 # Add User  {"name":name, "password":password}
 POST    /signup                      controllers.UserController.registerNew()
-
 GET     /info                        controllers.HomeController.info()
 
 # Update User Account Completion Status {"shouldUpdate": true/false}
-GET /users/getAccountStatus controllers.UserController.checkUpdateStatus()
+GET     /users/getAccountStatus      controllers.UserController.checkUpdateStatus()
+
+# Sending update to backend and perform update account
+POST    /users/update                controllers.UserController.updateAccount()
 

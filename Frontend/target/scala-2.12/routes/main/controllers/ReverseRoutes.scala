@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/dalla/Documents/Lab-2-Ebean/Lab-2-Ebean/Frontend/conf/routes
-// @DATE:Wed Mar 08 17:29:04 CST 2023
+// @SOURCE:/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/Frontend/conf/routes
+// @DATE:Thu Mar 09 00:38:04 CST 2023
 
 import play.api.mvc.Call
 
@@ -18,28 +18,34 @@ package controllers {
     }
 
   
-    // @LINE:12
-    def signupHandler(): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "register")
-    }
-  
     // @LINE:10
     def signup(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "signup")
     }
   
-    // @LINE:7
-    def index(): Call = {
-      
-      Call("GET", _prefix)
-    }
-  
     // @LINE:8
     def loginHandler(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "login")
+    }
+  
+    // @LINE:17
+    def updateHandler(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "updateInfo")
+    }
+  
+    // @LINE:12
+    def signupHandler(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "register")
+    }
+  
+    // @LINE:7
+    def index(): Call = {
+      
+      Call("GET", _prefix)
     }
   
   }

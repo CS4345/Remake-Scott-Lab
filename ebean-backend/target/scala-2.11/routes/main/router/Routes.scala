@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/dalla/Documents/Lab-2-Ebean/Lab-2-Ebean/ebean-backend/conf/routes
-// @DATE:Wed Mar 08 17:05:34 CST 2023
+// @SOURCE:/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/ebean-backend/conf/routes
+// @DATE:Wed Mar 08 23:34:17 CST 2023
 
 package router
 
@@ -48,6 +48,7 @@ class Routes(
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """signup""", """controllers.UserController.registerNew()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """info""", """controllers.HomeController.info()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """users/getAccountStatus""", """controllers.UserController.checkUpdateStatus()"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """users/update""", """controllers.UserController.updateAccount()"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -106,7 +107,7 @@ class Routes(
     )
   )
 
-  // @LINE:15
+  // @LINE:14
   private[this] lazy val controllers_HomeController_info3_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("info")))
   )
@@ -123,7 +124,7 @@ class Routes(
     )
   )
 
-  // @LINE:18
+  // @LINE:17
   private[this] lazy val controllers_UserController_checkUpdateStatus4_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("users/getAccountStatus")))
   )
@@ -137,6 +138,23 @@ class Routes(
       "GET",
       """ Update User Account Completion Status {"shouldUpdate": true/false}""",
       this.prefix + """users/getAccountStatus"""
+    )
+  )
+
+  // @LINE:20
+  private[this] lazy val controllers_UserController_updateAccount5_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("users/update")))
+  )
+  private[this] lazy val controllers_UserController_updateAccount5_invoker = createInvoker(
+    UserController_1.updateAccount(),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.UserController",
+      "updateAccount",
+      Nil,
+      "POST",
+      """ Sending update to backend and perform update account""",
+      this.prefix + """users/update"""
     )
   )
 
@@ -161,16 +179,22 @@ class Routes(
         controllers_UserController_registerNew2_invoker.call(UserController_1.registerNew())
       }
   
-    // @LINE:15
+    // @LINE:14
     case controllers_HomeController_info3_route(params) =>
       call { 
         controllers_HomeController_info3_invoker.call(HomeController_0.info())
       }
   
-    // @LINE:18
+    // @LINE:17
     case controllers_UserController_checkUpdateStatus4_route(params) =>
       call { 
         controllers_UserController_checkUpdateStatus4_invoker.call(UserController_1.checkUpdateStatus())
+      }
+  
+    // @LINE:20
+    case controllers_UserController_updateAccount5_route(params) =>
+      call { 
+        controllers_UserController_updateAccount5_invoker.call(UserController_1.updateAccount())
       }
   }
 }

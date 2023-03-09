@@ -63,7 +63,6 @@ Seq[Any](format.raw/*2.1*/("""
             <div class="card col s4 offset-s4 " style="margin-top: 50px;">
                 <div class="card-panel">
                     <form action=""""),_display_(/*34.36*/routes/*34.42*/.HomeController.loginHandler()),format.raw/*34.72*/("""" method="GET">
-
                         <div class="row" style="margin-bottom: 0;">
                             <div class="input-field col s12" style="margin-bottom: 0;">
 
@@ -78,16 +77,16 @@ Seq[Any](format.raw/*2.1*/("""
                                 <label for="password" style="margin-left: 10px;">Password</label>
                             </div>
                         </div>
-                        """),_display_(/*50.26*/if(authorizeMessage!= null)/*50.53*/{_display_(Seq[Any](format.raw/*50.54*/("""
-                            """),format.raw/*51.29*/("""<div class="alert alert-primary" role="alert" style="margin-bottom: 10px;">
-                                """),_display_(/*52.34*/authorizeMessage),format.raw/*52.50*/("""
-                            """),format.raw/*53.29*/("""</div>
+                        """),_display_(/*49.26*/if(authorizeMessage!= null)/*49.53*/{_display_(Seq[Any](format.raw/*49.54*/("""
+                            """),format.raw/*50.29*/("""<div class="alert alert-primary" role="alert" style="margin-bottom: 10px;">
+                                """),_display_(/*51.34*/authorizeMessage),format.raw/*51.50*/("""
+                            """),format.raw/*52.29*/("""</div>
                             <br>
-                        """)))}),format.raw/*55.26*/("""
-                        """),format.raw/*56.25*/("""<div class="row">
+                        """)))}),format.raw/*54.26*/("""
+                        """),format.raw/*55.25*/("""<div class="row">
                             <button id="api-search-button" class="btn col s4 offset-s4" style="background-color: darkslateblue"type="submit">Submit</button>
                         </div>
-                        <a href=""""),_display_(/*59.35*/routes/*59.41*/.HomeController.signup()),format.raw/*59.65*/("""">REGISTER</a>
+                        <a href=""""),_display_(/*58.35*/routes/*58.41*/.HomeController.signup()),format.raw/*58.65*/("""">REGISTER</a>
                     </form>
                 </div>
             </div>
@@ -110,11 +109,11 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2023-02-28T15:50:33.053
-                  SOURCE: C:/Users/dalla/Documents/Lab-2-Ebean/Lab-2-Ebean/Frontend/app/views/login.scala.html
-                  HASH: 191aaa03dff58266be79e581efd8bcda10fc23df
-                  MATRIX: 948->1|1068->28|1095->29|1562->469|1577->475|1639->516|2895->1747|2910->1753|2961->1783|3874->2669|3910->2696|3949->2697|4006->2726|4142->2835|4179->2851|4236->2880|4332->2945|4385->2970|4652->3210|4667->3216|4712->3240
-                  LINES: 28->1|33->2|34->3|41->10|41->10|41->10|65->34|65->34|65->34|81->50|81->50|81->50|82->51|83->52|83->52|84->53|86->55|87->56|90->59|90->59|90->59
+                  DATE: 2023-03-09T00:02:12.948
+                  SOURCE: /Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/Frontend/app/views/login.scala.html
+                  HASH: 5c19997eade27cee15ff5b2a02a323ef28aad9c2
+                  MATRIX: 948->1|1068->28|1095->29|1562->469|1577->475|1639->516|2895->1747|2910->1753|2961->1783|3873->2668|3909->2695|3948->2696|4005->2725|4141->2834|4178->2850|4235->2879|4331->2944|4384->2969|4651->3209|4666->3215|4711->3239
+                  LINES: 28->1|33->2|34->3|41->10|41->10|41->10|65->34|65->34|65->34|80->49|80->49|80->49|81->50|82->51|82->51|83->52|85->54|86->55|89->58|89->58|89->58
                   -- GENERATED --
               */
           

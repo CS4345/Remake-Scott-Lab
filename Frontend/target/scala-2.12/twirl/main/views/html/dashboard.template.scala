@@ -25,129 +25,144 @@ import play.core.j.PlayFormsMagicForJava._
 object dashboard extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[String,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(username: String):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(status: String):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](format.raw/*1.20*/("""
-"""),format.raw/*2.1*/("""<!DOCTYPE html>
+Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Job Dashboard</title>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        <link rel="stylesheet" href="path/to/custom.css">
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <style>
-        body """),format.raw/*13.14*/("""{"""),format.raw/*13.15*/("""
-            """),format.raw/*14.13*/("""overflow-y: hidden;
-        """),format.raw/*15.9*/("""}"""),format.raw/*15.10*/("""
-        """),format.raw/*16.9*/(""".paper-modal """),format.raw/*16.22*/("""{"""),format.raw/*16.23*/("""
-            """),format.raw/*17.13*/("""background-color: #fff;
-            border-radius: 2px;
+
+<head>
+    <meta charset="UTF-8">
+    <title>Job Dashboard</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style>
+        body """),format.raw/*15.14*/("""{"""),format.raw/*15.15*/("""
+            """),format.raw/*16.13*/("""overflow-y: hidden;
+        """),format.raw/*17.9*/("""}"""),format.raw/*17.10*/("""
+
+        """),format.raw/*19.9*/(""".paper-modal """),format.raw/*19.22*/("""{"""),format.raw/*19.23*/("""
+            """),format.raw/*20.13*/("""height: calc(100vh - 140px);
+            background-color: #fff;
+            border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             max-width: 600px;
             margin: 0 auto;
-            top: 10px;
-            overflow-y: auto;
+            overflow-y: scroll;
             position: relative;
             padding: 24px;
             width: calc(100% - 32px);
-        """),format.raw/*27.9*/("""}"""),format.raw/*27.10*/("""
-        """),format.raw/*28.9*/(""".paper-modal-overlay """),format.raw/*28.30*/("""{"""),format.raw/*28.31*/("""
-            """),format.raw/*29.13*/("""position: fixed;
+        """),format.raw/*30.9*/("""}"""),format.raw/*30.10*/("""
+
+        """),format.raw/*32.9*/(""".paper-modal-overlay """),format.raw/*32.30*/("""{"""),format.raw/*32.31*/("""
+            """),format.raw/*33.13*/("""position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.6); /* semi-transparent black background */
+            background-color: rgba(0, 0, 0, 0.6);
+            /* semi-transparent black background */
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow-y: scroll; /* enable vertical scrolling */
-            z-index: 100; /* ensure that the overlay is on top of other elements */
+            overflow-y: scroll;
+            /* enable vertical scrolling */
+            z-index: 100;
+            /* ensure that the overlay is on top of other elements */
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.5s ease, visibility 0s linear 0.5s;
-        """),format.raw/*43.9*/("""}"""),format.raw/*43.10*/("""
+        """),format.raw/*50.9*/("""}"""),format.raw/*50.10*/("""
 
-        """),format.raw/*45.9*/(""".paper-modal-overlay.show """),format.raw/*45.35*/("""{"""),format.raw/*45.36*/("""
-            """),format.raw/*46.13*/("""visibility: visible;
+        """),format.raw/*52.9*/(""".paper-modal-overlay.show """),format.raw/*52.35*/("""{"""),format.raw/*52.36*/("""
+            """),format.raw/*53.13*/("""visibility: visible;
             opacity: 1;
             transition: opacity 0.5s ease, visibility 0s linear 0s;
-        """),format.raw/*49.9*/("""}"""),format.raw/*49.10*/("""
+            overflow-y: auto;
+            /* add this line */
+        """),format.raw/*58.9*/("""}"""),format.raw/*58.10*/("""
 
-        """),format.raw/*51.9*/("""header """),format.raw/*51.16*/("""{"""),format.raw/*51.17*/("""
-            """),format.raw/*52.13*/("""height: 80px;
+        """),format.raw/*60.9*/("""header """),format.raw/*60.16*/("""{"""),format.raw/*60.17*/("""
+            """),format.raw/*61.13*/("""height: 0px;
             display: flex;
             justify-content: center;
             align-items: center;
-        """),format.raw/*56.9*/("""}"""),format.raw/*56.10*/("""
+        """),format.raw/*65.9*/("""}"""),format.raw/*65.10*/("""
 
-        """),format.raw/*58.9*/(""".nav-wrapper """),format.raw/*58.22*/("""{"""),format.raw/*58.23*/("""
-            """),format.raw/*59.13*/("""background-color: #6c63ff;
-        """),format.raw/*60.9*/("""}"""),format.raw/*60.10*/("""
+        """),format.raw/*67.9*/(""".nav-wrapper """),format.raw/*67.22*/("""{"""),format.raw/*67.23*/("""
+            """),format.raw/*68.13*/("""background-color: #6c63ff;
+        """),format.raw/*69.9*/("""}"""),format.raw/*69.10*/("""
 
-        """),format.raw/*62.9*/(""".navbar """),format.raw/*62.17*/("""{"""),format.raw/*62.18*/("""
-            """),format.raw/*63.13*/("""border-radius: 30px;
+        """),format.raw/*71.9*/(""".navbar """),format.raw/*71.17*/("""{"""),format.raw/*71.18*/("""
+            """),format.raw/*72.13*/("""border-radius: 30px;
             width: 80%;
             max-width: 1200px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 0 20px;
-        """),format.raw/*70.9*/("""}"""),format.raw/*70.10*/("""
+        """),format.raw/*79.9*/("""}"""),format.raw/*79.10*/("""
 
-        """),format.raw/*72.9*/(""".dashboard-main """),format.raw/*72.25*/("""{"""),format.raw/*72.26*/("""
-            """),format.raw/*73.13*/("""display: flex;
+        """),format.raw/*81.9*/(""".dashboard-main """),format.raw/*81.25*/("""{"""),format.raw/*81.26*/("""
+            """),format.raw/*82.13*/("""display: flex;
             flex-direction: row;
             width: 100vw;
             height: calc(100vh - 60px);
             background-color: rgba(0, 0, 0, 0.05);
             padding: 2%;
             overflow-y: hidden;
-        """),format.raw/*80.9*/("""}"""),format.raw/*80.10*/("""
+        """),format.raw/*89.9*/("""}"""),format.raw/*89.10*/("""
 
-        """),format.raw/*82.9*/(""".position-list """),format.raw/*82.24*/("""{"""),format.raw/*82.25*/("""
-            """),format.raw/*83.13*/("""max-height: 65vh;
+        """),format.raw/*91.9*/(""".position-list """),format.raw/*91.24*/("""{"""),format.raw/*91.25*/("""
+            """),format.raw/*92.13*/("""max-height: 65vh;
             overflow-y: scroll;
-        """),format.raw/*85.9*/("""}"""),format.raw/*85.10*/("""
+        """),format.raw/*94.9*/("""}"""),format.raw/*94.10*/("""
 
-        """),format.raw/*87.9*/(""".jobs-container """),format.raw/*87.25*/("""{"""),format.raw/*87.26*/("""
-            """),format.raw/*88.13*/("""width: 70%;
+        """),format.raw/*96.9*/(""".jobs-container """),format.raw/*96.25*/("""{"""),format.raw/*96.26*/("""
+            """),format.raw/*97.13*/("""width: 70%;
             background-color: #fff;
             border-radius: 1.75rem;
             flex: 1;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             padding: 2%;
-        """),format.raw/*94.9*/("""}"""),format.raw/*94.10*/("""
-        """),format.raw/*95.9*/(""".user-container """),format.raw/*95.25*/("""{"""),format.raw/*95.26*/("""
-            """),format.raw/*96.13*/("""width: calc(100% - 70%);
+        """),format.raw/*103.9*/("""}"""),format.raw/*103.10*/("""
+
+        """),format.raw/*105.9*/(""".user-container """),format.raw/*105.25*/("""{"""),format.raw/*105.26*/("""
+            """),format.raw/*106.13*/("""width: calc(100% - 70%);
             height: 100%;
             background-color: #fff;
             border-radius: 1.75rem;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             padding: 2%;
             margin-left: 2%;
-        """),format.raw/*103.9*/("""}"""),format.raw/*103.10*/("""
-        """),format.raw/*104.9*/(""".model-header """),format.raw/*104.23*/("""{"""),format.raw/*104.24*/("""
-            """),format.raw/*105.13*/("""font-size: 24px;
+        """),format.raw/*113.9*/("""}"""),format.raw/*113.10*/("""
+
+        """),format.raw/*115.9*/(""".model-header """),format.raw/*115.23*/("""{"""),format.raw/*115.24*/("""
+            """),format.raw/*116.13*/("""font-size: 24px;
             font-weight: bold;
-        """),format.raw/*107.9*/("""}"""),format.raw/*107.10*/("""
-        """),format.raw/*108.9*/(""".user-modal """),format.raw/*108.21*/("""{"""),format.raw/*108.22*/("""
-            """),format.raw/*109.13*/("""width: "100%";
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        """),format.raw/*121.9*/("""}"""),format.raw/*121.10*/("""
+
+        """),format.raw/*123.9*/(""".user-modal """),format.raw/*123.21*/("""{"""),format.raw/*123.22*/("""
+            """),format.raw/*124.13*/("""width: "100%";
             /* background-color: gray; */
             height: 70%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-        """),format.raw/*116.9*/("""}"""),format.raw/*116.10*/("""
-        """),format.raw/*117.9*/("""#complete-profile-button """),format.raw/*117.34*/("""{"""),format.raw/*117.35*/("""
-            """),format.raw/*118.13*/("""background-color: #6c63ff;
+        """),format.raw/*131.9*/("""}"""),format.raw/*131.10*/("""
+
+        """),format.raw/*133.9*/("""#complete-profile-button """),format.raw/*133.34*/("""{"""),format.raw/*133.35*/("""
+            """),format.raw/*134.13*/("""background-color: #6c63ff;
             color: #fff;
             border: none;
             border-radius: 5px;
@@ -157,10 +172,10 @@ Seq[Any](format.raw/*1.20*/("""
             transition: all 0.3s ease;
             display: block;
             margin: 0 auto;
-        """),format.raw/*128.9*/("""}"""),format.raw/*128.10*/("""
+        """),format.raw/*144.9*/("""}"""),format.raw/*144.10*/("""
 
-        """),format.raw/*130.9*/("""#apply-general """),format.raw/*130.24*/("""{"""),format.raw/*130.25*/("""
-            """),format.raw/*131.13*/("""background-color: #6c63ff;
+        """),format.raw/*146.9*/("""#apply-general """),format.raw/*146.24*/("""{"""),format.raw/*146.25*/("""
+            """),format.raw/*147.13*/("""background-color: #6c63ff;
             color: #fff;
             border: none;
             border-radius: 5px;
@@ -168,14 +183,15 @@ Seq[Any](format.raw/*1.20*/("""
             font-size: 16px;
             cursor: pointer;
             transition: all 0.3s ease;
-        """),format.raw/*139.9*/("""}"""),format.raw/*139.10*/("""
+        """),format.raw/*155.9*/("""}"""),format.raw/*155.10*/("""
 
-        """),format.raw/*141.9*/("""#complete-profile-button:hover """),format.raw/*141.40*/("""{"""),format.raw/*141.41*/("""
-            """),format.raw/*142.13*/("""background-color: #594dc2;
+        """),format.raw/*157.9*/("""#complete-profile-button:hover """),format.raw/*157.40*/("""{"""),format.raw/*157.41*/("""
+            """),format.raw/*158.13*/("""background-color: #594dc2;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-        """),format.raw/*144.9*/("""}"""),format.raw/*144.10*/("""
-        """),format.raw/*145.9*/("""#position-card """),format.raw/*145.24*/("""{"""),format.raw/*145.25*/("""
-            """),format.raw/*146.13*/("""width: 98%;
+        """),format.raw/*160.9*/("""}"""),format.raw/*160.10*/("""
+
+        """),format.raw/*162.9*/("""#position-card """),format.raw/*162.24*/("""{"""),format.raw/*162.25*/("""
+            """),format.raw/*163.13*/("""width: 98%;
             height: 100%;
             padding: 5px;
             border-radius: 10px;
@@ -183,177 +199,302 @@ Seq[Any](format.raw/*1.20*/("""
             flex-direction: row;
             align-items: center;
             border: 0.5px solid black;
-            box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
             overflow-y: scroll;
-        """),format.raw/*156.9*/("""}"""),format.raw/*156.10*/("""
-    """),format.raw/*157.5*/("""</style>
-    </head>
-    <body>
+        """),format.raw/*173.9*/("""}"""),format.raw/*173.10*/("""
+    """),format.raw/*174.5*/("""</style>
+</head>
 
-        <nav>
-            <div class="nav-wrapper">
-                <a href="#" class="brand-logo center">Job Dashboard</a>
-                <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Applications</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-            </div>
-        </nav>
+<body>
 
-        <ul class="sidenav" id="mobile-menu">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Applications</a></li>
-            <li><a href="#">Contact Us</a></li>
-        </ul>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo center">Job Dashboard</a>
+            <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Applications</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
 
-            <!-- Modal structure for jobs -->
-        <div id="main-container" class="dashboard-main">
-            <div id="jobs-modal" class="jobs-container">
-                <div class="modal-content">
-                    <div id="jobs-post-title" style="
+    <ul class="sidenav" id="mobile-menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Applications</a></li>
+        <li><a href="#">Contact Us</a></li>
+    </ul>
+
+    <!-- Modal structure for jobs -->
+    <div id="main-container" class="dashboard-main">
+        <div id="jobs-modal" class="jobs-container">
+            <div class="modal-content">
+                <div id="jobs-post-title" style="
                         display: flex;
                         flex: 1;
                         justify-content: space-between;
                         height: 100%;
                         padding-right: 24px;
                     ">
-                        <h4>Featured Positions</h4>
-                        <div style="
+                    <h4>Featured Positions</h4>
+                    <div style="
                             display: flex;
                             align-items: center;
                         ">
-                            <button class="apply-general" id="apply-general">Apply</button>
+                        <button class="apply-general" id="apply-general">Apply</button>
+                    </div>
+                </div>
+                <p>List of current job openings here</p>
+                <div id="position-list" class="position-list"></div>
+            </div>
+        </div>
+        <div id="user-modal-container" class="user-container">
+            <h4>Profile</h4>
+            <div class="user-modal" id="user-modal"></div>
+        </div>
+    </div>
+
+    <div class="paper-modal-overlay">
+        <div class="paper-modal">
+            <div class="model-header">
+                Edit Profile
+            </div>
+            <div class="model-content">
+                <form action=""""),_display_(/*232.32*/routes/*232.38*/.HomeController.updateHandler()),format.raw/*232.69*/("""" method="GET">
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <select id="researchArea" name="researchArea">
+                                <option value="" disabled selected>Choose your research area</option>
+                                <option value="Algorithm Development">Algorithm Development</option>
+                                <option value="Software Engineering">Software Engineering</option>
+                                <option value="Cyber Security">Cyber Security</option>
+                                <option value="Data Science">Data Science</option>
+                            </select>
+                            <label>Research Area</label>
                         </div>
                     </div>
-                    <p>List of current job openings here</p>
-                    <div id="position-list" class="position-list"></div>
-                </div>
-            </div>
-            <div id="user-modal-container" class="user-container">
-                <h4>Profile</h4>
-                <div class="user-modal" id="user-modal"></div>
-            </div>
-        </div>
-
-        <div class="paper-modal-overlay">
-            <div class="paper-modal">
-                <div class="model-header">
-            Edit Profile
-                </div>
-                <div class="model-content">
-                    <form method="GET">
-
+                    <div class="row">
                         <div class="input-field col s12">
-                            <label for="title">Title</label>
-                            <input type="text" name="title" id="title">
+                            <select id="title" name="title">
+                                <option value="" disabled selected>Title</option>
+                                <option value="Mr">Mr</option>
+                                <option value="Ms">Ms</option>
+                                <option value="Dr">Dr</option>
+                                <option value="Sir">Sir</option>
+                            </select>
+                            <label>Title</label>
                         </div>
-
+                    </div>
+                    <div class="row">
                         <div class="input-field col s12">
-                            <label for="position">Position</label>
-                            <input type="text" name="position" id="position">
+                            <select id="position" name="position">
+                                <option value="" disabled selected>Select Option</option>
+                                <option value="Professor">Professor</option>
+                                <option value="TA">TA</option>
+                                <option value="Student">Student</option>
+                                <option value="Heisenberg">Heisenberg</option>
+                            </select>
+                            <label>Position</label>
                         </div>
-
+                    </div>
+                    <div class="row">
                         <div class="input-field col s12">
-                            <label for="affiliation">Affiliation</label>
-                            <input type="text" name="affiliation" id="affiliation">
+                            <select id="affiliation" name="affiliation">
+                                <option value="" disabled selected>Select Option</option>
+                                <option value="Southern Methodist University">Southern Methodist University</option>
+                                <option value="Other University">Other University</option>
+                                <option value="Google">Google</option>
+                            </select>
+                            <label>Affiliation</label>
                         </div>
-
+                    </div>
+                    <div class="row">
                         <div class="input-field col s12">
-                            <label for="phone">Phone</label>
-                            <input type="text" name="phone" id="phone">
+
+                            <input id="email" name="email" type="text" class="validate">
+                            <label for="email">Email</label>
                         </div>
-
+                    </div>
+                    <div class="row">
                         <div class="input-field col s12">
+
+                            <input id="phone" name="phone" type="text" class="validate">
+                            <label for="phone">Phone #</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+
+                            <input id="fax" name="fax" type="text" class="validate">
                             <label for="fax">Fax</label>
-                            <input type="text" name="fax" id="fax">
                         </div>
-
+                    </div>
+                    <div class="row">
                         <div class="input-field col s12">
+
+                            <textarea name="address" id="address" cols="20" rows="5"></textarea>
                             <label for="address">Address</label>
-                            <input type="text" name="address" id="address">
                         </div>
-
+                    </div>
+                    <div class="row">
                         <div class="input-field col s12">
+
+                            <input id="city" name="city" type="text" class="validate">
                             <label for="city">City</label>
-                            <input type="text" name="city" id="city">
                         </div>
-
+                    </div>
+                    <div class="row">
                         <div class="input-field col s12">
-                            <label for="countryRegion">Country/Region</label>
-                            <input type="text" name="countryRegion" id="countryRegion">
+                            <select id="country" name="country">
+                                <option value="" disabled selected>Select Option</option>
+                                <option value="United States">United States</option>
+                                <option value="Canada">Canada</option>
+                                <option value="Mexico">Mexico</option>
+                            </select>
+                            <label>Country</label>
                         </div>
-
+                    </div>
+                    <div class="row">
                         <div class="input-field col s12">
-                            <label for="zipcode">Zip Code</label>
-                            <input type="text" name="zipcode" id="zipcode">
+
+                            <input id="zipcode" name="zipcode" type="text" class="validate">
+                            <label for="zipcode">Zipcode</label>
                         </div>
-
+                    </div>
+                    <div class="row">
                         <div class="input-field col s12">
+
+                            <textarea name="comments" id="comments" cols="20" rows="5"></textarea>
                             <label for="comments">Comments</label>
-                            <textarea name="comments" id="comments"></textarea>
                         </div>
-
+                    </div>
+                    <div class="row">
                         <div class="input-field col s12">
-                            <button id="complete-profile-button" type="submit" name="action">Submit</button>
+                            <select id="status" name="status">
+                                <option value="" disabled selected>Select Option</option>
+                                <option value="Faculty">Faculty</option>
+                                <option value="Student">Student</option>
+                                <option value="Staff">Staff</option>
+                            </select>
+                            <label>Status</label>
                         </div>
+                    </div>
+                    <script>
+                        $(document).ready(function () """),format.raw/*353.55*/("""{"""),format.raw/*353.56*/("""
+                            """),format.raw/*354.29*/("""$('#status').on('change', function () """),format.raw/*354.67*/("""{"""),format.raw/*354.68*/("""
+                                """),format.raw/*355.33*/("""if ($(this).val() == 'Student') """),format.raw/*355.65*/("""{"""),format.raw/*355.66*/("""
+                                    """),format.raw/*356.37*/("""$('#degree-plan-field').show();
+                                """),format.raw/*357.33*/("""}"""),format.raw/*357.34*/(""" """),format.raw/*357.35*/("""else """),format.raw/*357.40*/("""{"""),format.raw/*357.41*/("""
+                                    """),format.raw/*358.37*/("""$('#degree-plan-field').hide();
+                                """),format.raw/*359.33*/("""}"""),format.raw/*359.34*/("""
+                            """),format.raw/*360.29*/("""}"""),format.raw/*360.30*/(""");
+                        """),format.raw/*361.25*/("""}"""),format.raw/*361.26*/(""");
+                    </script>
 
-                    </form>
-                </div>
+                    <div id="degree-plan-field" class="row" style="display: none;">
+                        <div class="input-field col s12">
+                            <select id="degreePlan" name="degreePlan">
+                                <option value="" disabled selected>Select Degree Plan</option>
+                                <option value="Ph.D.">Ph.D.</option>
+                                <option value="D.E.-SE">D.E.-SE</option>
+                                <option value="MS-CS">MS-CS</option>
+                                <option value="MS-SE">MS-SE</option>
+                                <option value="MS-Cybersecurity">MS-Cybersecurity</option>
+                                <option value="BS-CS">BS-CS</option>
+                                <option value="BA-CS">BA-CS</option>
+                            </select>
+                            <label for="degreePlan">Current Degree Plan</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="startingSemester" name="startingSemester" type="text" class="validate">
+                            <label for="startingSemester">Starting Semester of Current Program (Semester, Year)</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="expectedSemester" name="expectedSemester" type="text" class="validate">
+                            <label for="expectedSemester">Expected Semester to Graduate (Semester, Year)</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <select id="coursesTakenBefore" name="coursesTakenBefore[]" multiple>
+                                <option value="" disabled selected>Select Courses Taken Before</option>
+                                <option value="Course1">Course1</option>
+                                <option value="Course2">Course2</option>
+                                <option value="Course3">Course3</option>
+                                <option value="Course4">Course4</option>
+                                <option value="Course5">Course5</option>
+                            </select>
+                            <label for="coursesTakenBefore">Courses Taken Before</label>
+                        </div>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <button id="complete-profile-button" type="submit" name="action">Submit</button>
+                    </div>
+
+                </form>
             </div>
         </div>
-        <script src="assets/javascripts/fetchJobs.js"></script>
-        <script id="profile" src="assets/javascripts/fetchProfileState.js" username="""),_display_(/*275.86*/username),format.raw/*275.94*/("""> </script>
-        <script>
-    // Get the "Complete Profile" button and the paper modal overlay
-    const applyButton = document.getElementById("apply-general")
-    const completeProfileButton = document.getElementById("complete-profile-button");
-    const paperModalOverlay = document.querySelector(".paper-modal-overlay");
-    const paperModalOverlayApply = document.getElementById("modal-apply")
+    </div>
+    <script src="assets/javascripts/fetchJobs.js"></script>
+    <script>
+        console.log("cai lon ma", """),_display_(/*409.36*/status),format.raw/*409.42*/(""");
+    </script>
+    <script id="profile" src="assets/javascripts/fetchProfileState.js" status="""),_display_(/*411.80*/status),format.raw/*411.86*/("""> </script>
+    <script>
+        // Get the "Complete Profile" button and the paper modal overlay
+        const applyButton = document.getElementById("apply-general")
+        const completeProfileButton = document.getElementById("complete-profile-button");
+        const paperModalOverlay = document.querySelector(".paper-modal-overlay");
+        const paperModalOverlayApply = document.getElementById("modal-apply")
 
-    // Hide the paper modal overlay by default
-    paperModalOverlay.style.display = "none";
+        // Hide the paper modal overlay by default
+        paperModalOverlay.style.display = "none";
 
-    // Add a click event listener to the "Complete Profile" button
-    completeProfileButton.addEventListener("click", () => """),format.raw/*287.59*/("""{"""),format.raw/*287.60*/("""
-        """),format.raw/*288.9*/("""// Show the paper modal overlay
-        paperModalOverlay.style.display = "flex";
-        setTimeout(() => """),format.raw/*290.26*/("""{"""),format.raw/*290.27*/("""
-            """),format.raw/*291.13*/("""paperModalOverlay.classList.add("show");
-        """),format.raw/*292.9*/("""}"""),format.raw/*292.10*/(""", 0);
-    """),format.raw/*293.5*/("""}"""),format.raw/*293.6*/(""");
+        // Add a click event listener to the "Complete Profile" button
+        completeProfileButton.addEventListener("click", () => """),format.raw/*423.63*/("""{"""),format.raw/*423.64*/("""
+            """),format.raw/*424.13*/("""// Show the paper modal overlay
+            paperModalOverlay.style.display = "flex";
+            setTimeout(() => """),format.raw/*426.30*/("""{"""),format.raw/*426.31*/("""
+                """),format.raw/*427.17*/("""paperModalOverlay.classList.add("show");
+            """),format.raw/*428.13*/("""}"""),format.raw/*428.14*/(""", 0);
+        """),format.raw/*429.9*/("""}"""),format.raw/*429.10*/(""");
 
-    // Add a click even listener when user click "Apply" button
-    applyButton.addEventListener("click", () => """),format.raw/*296.49*/("""{"""),format.raw/*296.50*/("""
-        """),format.raw/*297.9*/("""// Show the paper modal overaly
-        paperModalOverlayApply.style.display = "flex";
-        setTimeout(() => """),format.raw/*299.26*/("""{"""),format.raw/*299.27*/("""
-            """),format.raw/*300.13*/("""paperModalOverlayApply.classList.add("show");
-        """),format.raw/*301.9*/("""}"""),format.raw/*301.10*/(""", 0);
-    """),format.raw/*302.5*/("""}"""),format.raw/*302.6*/(""")
+        // Add a click even listener when user click "Apply" button
+        applyButton.addEventListener("click", () => """),format.raw/*432.53*/("""{"""),format.raw/*432.54*/("""
+            """),format.raw/*433.13*/("""// Show the paper modal overaly
+            paperModalOverlayApply.style.display = "flex";
+            setTimeout(() => """),format.raw/*435.30*/("""{"""),format.raw/*435.31*/("""
+                """),format.raw/*436.17*/("""paperModalOverlayApply.classList.add("show");
+            """),format.raw/*437.13*/("""}"""),format.raw/*437.14*/(""", 0);
+        """),format.raw/*438.9*/("""}"""),format.raw/*438.10*/(""")
 
 
-    // Add a click event listener to the paper modal overlay
-    paperModalOverlay.addEventListener("click", (event) => """),format.raw/*306.60*/("""{"""),format.raw/*306.61*/("""
-        """),format.raw/*307.9*/("""// If the user clicked outside the paper modal, hide the overlay
-        if (event.target === paperModalOverlay) """),format.raw/*308.49*/("""{"""),format.raw/*308.50*/("""
-            """),format.raw/*309.13*/("""paperModalOverlay.classList.remove("show");
-            setTimeout(() => """),format.raw/*310.30*/("""{"""),format.raw/*310.31*/("""
-                """),format.raw/*311.17*/("""paperModalOverlay.style.display = "none";
-            """),format.raw/*312.13*/("""}"""),format.raw/*312.14*/(""", 500);
-        """),format.raw/*313.9*/("""}"""),format.raw/*313.10*/("""
-    """),format.raw/*314.5*/("""}"""),format.raw/*314.6*/(""");
-</script>
+        // Add a click event listener to the paper modal overlay
+        paperModalOverlay.addEventListener("click", (event) => """),format.raw/*442.64*/("""{"""),format.raw/*442.65*/("""
+            """),format.raw/*443.13*/("""// If the user clicked outside the paper modal, hide the overlay
+            if (event.target === paperModalOverlay) """),format.raw/*444.53*/("""{"""),format.raw/*444.54*/("""
+                """),format.raw/*445.17*/("""paperModalOverlay.classList.remove("show");
+                setTimeout(() => """),format.raw/*446.34*/("""{"""),format.raw/*446.35*/("""
+                    """),format.raw/*447.21*/("""paperModalOverlay.style.display = "none";
+                """),format.raw/*448.17*/("""}"""),format.raw/*448.18*/(""", 500);
+            """),format.raw/*449.13*/("""}"""),format.raw/*449.14*/("""
+        """),format.raw/*450.9*/("""}"""),format.raw/*450.10*/(""");
+    </script>
 
-    </body>"""))
+</body>
+
+<script>
+    $(document).ready(function () """),format.raw/*456.35*/("""{"""),format.raw/*456.36*/("""
+        """),format.raw/*457.9*/("""$('select').formSelect();
+    """),format.raw/*458.5*/("""}"""),format.raw/*458.6*/(""");
+</script>"""))
       }
     }
   }
 
-  def render(username:String): play.twirl.api.HtmlFormat.Appendable = apply(username)
+  def render(status:String): play.twirl.api.HtmlFormat.Appendable = apply(status)
 
-  def f:((String) => play.twirl.api.HtmlFormat.Appendable) = (username) => apply(username)
+  def f:((String) => play.twirl.api.HtmlFormat.Appendable) = (status) => apply(status)
 
   def ref: this.type = this
 
@@ -362,11 +503,11 @@ Seq[Any](format.raw/*1.20*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2023-03-08T17:43:07.551
-                  SOURCE: C:/Users/dalla/Documents/Lab-2-Ebean/Lab-2-Ebean/Frontend/app/views/dashboard.scala.html
-                  HASH: 288277340c5c3d19c841b1c13202979ca7c5c252
-                  MATRIX: 952->1|1065->19|1093->21|1836->736|1865->737|1907->751|1963->780|1992->781|2029->791|2070->804|2099->805|2141->819|2507->1158|2536->1159|2573->1169|2622->1190|2651->1191|2693->1205|3306->1791|3335->1792|3374->1804|3428->1830|3457->1831|3499->1845|3650->1969|3679->1970|3718->1982|3753->1989|3782->1990|3824->2004|3974->2127|4003->2128|4042->2140|4083->2153|4112->2154|4154->2168|4217->2204|4246->2205|4285->2217|4321->2225|4350->2226|4392->2240|4643->2464|4672->2465|4711->2477|4755->2493|4784->2494|4826->2508|5090->2745|5119->2746|5158->2758|5201->2773|5230->2774|5272->2788|5359->2848|5388->2849|5427->2861|5471->2877|5500->2878|5542->2892|5770->3093|5799->3094|5836->3104|5880->3120|5909->3121|5951->3135|6228->3384|6258->3385|6296->3395|6339->3409|6369->3410|6412->3424|6498->3482|6528->3483|6566->3493|6607->3505|6637->3506|6680->3520|6938->3750|6968->3751|7006->3761|7060->3786|7090->3787|7133->3801|7474->4114|7504->4115|7544->4127|7588->4142|7618->4143|7661->4157|7944->4412|7974->4413|8014->4425|8074->4456|8104->4457|8147->4471|8269->4565|8299->4566|8337->4576|8381->4591|8411->4592|8454->4606|8814->4938|8844->4939|8878->4945|14007->10046|14037->10054|14699->10687|14729->10688|14767->10698|14905->10807|14935->10808|14978->10822|15056->10872|15086->10873|15125->10884|15154->10885|15302->11004|15332->11005|15370->11015|15513->11129|15543->11130|15586->11144|15669->11199|15699->11200|15738->11211|15767->11212|15924->11340|15954->11341|15992->11351|16135->11465|16165->11466|16208->11480|16311->11554|16341->11555|16388->11573|16472->11628|16502->11629|16547->11646|16577->11647|16611->11653|16640->11654
-                  LINES: 28->1|33->1|34->2|45->13|45->13|46->14|47->15|47->15|48->16|48->16|48->16|49->17|59->27|59->27|60->28|60->28|60->28|61->29|75->43|75->43|77->45|77->45|77->45|78->46|81->49|81->49|83->51|83->51|83->51|84->52|88->56|88->56|90->58|90->58|90->58|91->59|92->60|92->60|94->62|94->62|94->62|95->63|102->70|102->70|104->72|104->72|104->72|105->73|112->80|112->80|114->82|114->82|114->82|115->83|117->85|117->85|119->87|119->87|119->87|120->88|126->94|126->94|127->95|127->95|127->95|128->96|135->103|135->103|136->104|136->104|136->104|137->105|139->107|139->107|140->108|140->108|140->108|141->109|148->116|148->116|149->117|149->117|149->117|150->118|160->128|160->128|162->130|162->130|162->130|163->131|171->139|171->139|173->141|173->141|173->141|174->142|176->144|176->144|177->145|177->145|177->145|178->146|188->156|188->156|189->157|307->275|307->275|319->287|319->287|320->288|322->290|322->290|323->291|324->292|324->292|325->293|325->293|328->296|328->296|329->297|331->299|331->299|332->300|333->301|333->301|334->302|334->302|338->306|338->306|339->307|340->308|340->308|341->309|342->310|342->310|343->311|344->312|344->312|345->313|345->313|346->314|346->314
+                  DATE: 2023-03-09T01:43:08.812
+                  SOURCE: /Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/Frontend/app/views/dashboard.scala.html
+                  HASH: 1b837b0cc37e2e560d38543a082b49c400957497
+                  MATRIX: 952->1|1062->18|1721->649|1750->650|1791->663|1846->691|1875->692|1912->702|1953->715|1982->716|2023->729|2400->1079|2429->1080|2466->1090|2515->1111|2544->1112|2585->1125|3220->1733|3249->1734|3286->1744|3340->1770|3369->1771|3410->1784|3620->1967|3649->1968|3686->1978|3721->1985|3750->1986|3791->1999|3936->2117|3965->2118|4002->2128|4043->2141|4072->2142|4113->2155|4175->2190|4204->2191|4241->2201|4277->2209|4306->2210|4347->2223|4591->2440|4620->2441|4657->2451|4701->2467|4730->2468|4771->2481|5028->2711|5057->2712|5094->2722|5137->2737|5166->2738|5207->2751|5292->2809|5321->2810|5358->2820|5402->2836|5431->2837|5472->2850|5695->3045|5725->3046|5763->3056|5808->3072|5838->3073|5880->3086|6150->3328|6180->3329|6218->3339|6261->3353|6291->3354|6333->3367|6514->3520|6544->3521|6582->3531|6623->3543|6653->3544|6695->3557|6946->3780|6976->3781|7014->3791|7068->3816|7098->3817|7140->3830|7471->4133|7501->4134|7539->4144|7583->4159|7613->4160|7655->4173|7930->4420|7960->4421|7998->4431|8058->4462|8088->4463|8130->4476|8250->4568|8280->4569|8318->4579|8362->4594|8392->4595|8434->4608|8787->4933|8817->4934|8850->4939|10933->6994|10949->7000|11002->7031|17343->13343|17373->13344|17431->13373|17498->13411|17528->13412|17590->13445|17651->13477|17681->13478|17747->13515|17840->13579|17870->13580|17900->13581|17934->13586|17964->13587|18030->13624|18123->13688|18153->13689|18211->13718|18241->13719|18297->13746|18327->13747|21161->16553|21189->16559|21313->16655|21341->16661|22023->17314|22053->17315|22095->17328|22239->17443|22269->17444|22315->17461|22397->17514|22427->17515|22469->17529|22499->17530|22652->17654|22682->17655|22724->17668|22873->17788|22903->17789|22949->17806|23036->17864|23066->17865|23108->17879|23138->17880|23299->18012|23329->18013|23371->18026|23517->18143|23547->18144|23593->18161|23699->18238|23729->18239|23779->18260|23866->18318|23896->18319|23945->18339|23975->18340|24012->18349|24042->18350|24141->18420|24171->18421|24208->18430|24266->18460|24295->18461
+                  LINES: 28->1|33->2|46->15|46->15|47->16|48->17|48->17|50->19|50->19|50->19|51->20|61->30|61->30|63->32|63->32|63->32|64->33|81->50|81->50|83->52|83->52|83->52|84->53|89->58|89->58|91->60|91->60|91->60|92->61|96->65|96->65|98->67|98->67|98->67|99->68|100->69|100->69|102->71|102->71|102->71|103->72|110->79|110->79|112->81|112->81|112->81|113->82|120->89|120->89|122->91|122->91|122->91|123->92|125->94|125->94|127->96|127->96|127->96|128->97|134->103|134->103|136->105|136->105|136->105|137->106|144->113|144->113|146->115|146->115|146->115|147->116|152->121|152->121|154->123|154->123|154->123|155->124|162->131|162->131|164->133|164->133|164->133|165->134|175->144|175->144|177->146|177->146|177->146|178->147|186->155|186->155|188->157|188->157|188->157|189->158|191->160|191->160|193->162|193->162|193->162|194->163|204->173|204->173|205->174|263->232|263->232|263->232|384->353|384->353|385->354|385->354|385->354|386->355|386->355|386->355|387->356|388->357|388->357|388->357|388->357|388->357|389->358|390->359|390->359|391->360|391->360|392->361|392->361|440->409|440->409|442->411|442->411|454->423|454->423|455->424|457->426|457->426|458->427|459->428|459->428|460->429|460->429|463->432|463->432|464->433|466->435|466->435|467->436|468->437|468->437|469->438|469->438|473->442|473->442|474->443|475->444|475->444|476->445|477->446|477->446|478->447|479->448|479->448|480->449|480->449|481->450|481->450|487->456|487->456|488->457|489->458|489->458
                   -- GENERATED --
               */
           

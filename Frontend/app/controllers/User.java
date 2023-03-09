@@ -1,15 +1,17 @@
 package controllers;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import play.filters.csrf.AddCSRFToken;
 import play.libs.Json;
 import play.libs.ws.WSClient;
 import play.libs.ws.WSRequest;
 import play.libs.ws.WSResponse;
+import play.mvc.Controller;
 
 import java.util.concurrent.CompletionStage;
 
 
-public class User {
+public class User extends Controller {
 
     private String username;
     private String password;
@@ -127,34 +129,40 @@ public class User {
                 });
     }
 
-    public  CompletionStage<WSResponse> registerUser() {
+    public static CompletionStage<WSResponse> getAccountStatus(String username) {
+        WSClient ws = play.test.WSTestClient.newClient(9005);
 
+        String url = "http://localhost:9005/users/getAccountStatus?username=" + username;
+        WSRequest request = ws.url(url);
+        return request.addHeader("Content-Type", "application/json")
+                .get()
+                .thenApply((WSResponse r) -> {
+                    return r;
+                });
+    }
+
+    @AddCSRFToken
+    public CompletionStage<WSResponse> updateUser(String username) {
+        System.out.println("Update Info for User: " + username);
         WSClient ws = play.test.WSTestClient.newClient(9005);
         // send this. user
         ObjectNode res = Json.newObject();
-        res.put("username", this.username);
-        res.put("password",this.password);
-        res.put("firstname", this.firstname);
-        res.put("lastname", this.lastname);
-        res.put("researchArea", this.researchArea);
-        res.put("title", this.title);
-        res.put("position", this.position);
-        res.put("affiliation", this.affiliation);
-        res.put("email", this.email);
-        res.put("phone", this.phone);
-        res.put("fax", this.fax);
-        res.put("address", this.address);
-        res.put("city", this.city);
-        res.put("country", this.country);
-        res.put("zipcode", this.zipcode);
-        res.put("comments", this.comments);
-        res.put("status", this.status);
-
+        res.put("username", username);
+        res.put("researchArea", this.researchArea != null ? this.researchArea : "");
+        res.put("title", this.title != null ? this.title : "");
+        res.put("position", this.position != null ? this.position : "");
+        res.put("affiliation", this.affiliation != null ? this.affiliation : "");
+        res.put("email", this.email != null ? this.email : "");
+        res.put("phone", this.phone != null ? this.phone : "");
+        res.put("fax", this.fax != null ? this.fax : "");
+        res.put("address", this.address != null ? this.address : "");
+        res.put("city", this.city != null ? this.city : "");
+        res.put("country", this.country != null ? this.country : "");
+        res.put("zipcode", this.zipcode != null ? this.zipcode : "");
+        res.put("comments", this.comments != null ? this.comments : "");
+        res.put("status", this.status != null ? this.status : "");
 
         System.out.println(username);
-        System.out.println(password);
-        System.out.println(firstname);
-        System.out.println(lastname);
         System.out.println(researchArea);
         System.out.println(title);
         System.out.println(position);
@@ -169,6 +177,30 @@ public class User {
         System.out.println(comments);
         System.out.println(status);
 
+        WSRequest request = ws.url("http://localhost:9005/users/update");
+        return request.addHeader("Content-Type", "application/json")
+                .post(res)
+                .thenApply((WSResponse r) -> {
+                    return r;
+                });
+    }
+
+    @AddCSRFToken
+    public  CompletionStage<WSResponse> registerUser() {
+
+        WSClient ws = play.test.WSTestClient.newClient(9005);
+        // send this. user
+        ObjectNode res = Json.newObject();
+        res.put("username", this.username);
+        res.put("password",this.password);
+        res.put("firstname", this.firstname);
+        res.put("lastname", this.lastname);
+
+
+        System.out.println(username);
+        System.out.println(password);
+        System.out.println(firstname);
+        System.out.println(lastname);
 
         WSRequest request = ws.url("http://localhost:9005/signup");
         return request.addHeader("Content-Type", "application/json")

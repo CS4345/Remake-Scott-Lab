@@ -4,7 +4,7 @@
 		module="client$sources_2.10"
 		revision="1.0"
 		status="integration"
-		publication="20230127135240"
+		publication="20230308205704"
 	/>
 	<configurations>
 		<conf name="default" visibility="public" description=""/>
@@ -20,9 +20,6 @@
 		</dependency>
 		<dependency org="org.scala-sbt" name="control" rev="0.13.17" transitive="false" conf="default->compile,default(compile)">
 			<artifact name="control" type="src" ext="jar" conf="sources" e:classifier="sources"/>
-		</dependency>
-		<dependency org="org.webjars" name="npm" rev="4.2.0" transitive="false" conf="default->default,compile,runtime(*),master(compile),runtime,default(compile),compile(*),master">
-			<artifact name="npm" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 		</dependency>
 		<dependency org="org.slf4j" name="slf4j-api" rev="1.7.26" transitive="false" conf="default->default,compile,runtime(*),master(compile),runtime,default(compile),compile(*),master">
 			<artifact name="slf4j-api" type="src" ext="jar" conf="sources" e:classifier="sources"/>

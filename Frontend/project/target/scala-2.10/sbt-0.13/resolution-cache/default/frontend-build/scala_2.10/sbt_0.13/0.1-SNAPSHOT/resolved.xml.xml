@@ -4,7 +4,7 @@
 		module="frontend-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20230127134124"
+		publication="20230308210057"
 		e:sbtVersion="0.13" e:scalaVersion="2.10"
 	>
 		<description>
