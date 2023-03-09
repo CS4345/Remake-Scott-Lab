@@ -11,7 +11,7 @@ After the user filled out -> I have set up the backend to update and it will sho
 
 ![image](https://user-images.githubusercontent.com/85500156/223956593-f60803ae-0d68-41d7-94cf-a606bf3912b5.png)
 
-# 3. Complete the apply button
+# 3. Complete the apply button - Diego (on progress)
 
 I have implemented the edit profile where it will have an animation to show the modal, you can use the same css styling class to show an apply modal so that:
 
