@@ -1,0 +1,69 @@
+@import routes._
+@import models.{User, Position, ApplicationFormData}
+@import routes.ApplicationController
+@(user: User, positions: Seq[Position], applicationForm: Form[ApplicationFormData])
+
+<h1>TA Application Form</h1>
+
+@helper.form(action = ApplicationController.submitApplication()) {
+
+  <label for="firstName">First Name:</label>
+  @user.firstname
+
+  <label for="lastName">Last Name:</label>
+  @user.lastname
+
+  <label for="email">Email:</label>
+  @user.email
+
+  <label for="phoneNumber">Phone Number:</label>
+  @user.phone
+
+  <label for="degreePlan">Current Degree Plan:</label>
+  @user.degreePlan
+
+  <label for="startingSemester">Starting Semester:</label>
+  @user.startingSemester
+
+  <label for="expectedGraduation">Expected Graduation Semester:</label>
+  @user.expectedGraduation
+
+  <label for="coursesTaken">Courses Taken:</label>
+  <select multiple id="coursesTaken" name="coursesTaken">
+  @for(position <- positions) {
+    <option value="@position.position_id">@position.courseTitle</option>
+  }
+  </select>
+
+  <label for="preference1">1st Preference to be TA for:</label>
+  <select name="position1">
+  @for(position <- positions) {
+    <option value="@position.position_id">@position.courseTitle</option>
+  }
+  </select>
+  <label for="preference2">2nd Preference to be TA for:</label>
+  <select name="position2">
+  @for(position <- positions) {
+    <option value="@position.position_id">@position.courseTitle</option>
+  }
+  </select>
+  <label for="preference3">3rd Preference to be TA for:</label>
+  <select name="position3">
+  @for(position <- positions) {
+    <option value="@position.position_id">@position.courseTitle</option>
+  }
+  </select>
+
+  <label for="coursesNotPreferred">Courses Not Preferred:</label>
+  <select multiple id="coursesNotPreferred" name="coursesNotPreferred">
+  @for(position <- positions) {
+    <option value="@position.position_id">@position.courseTitle</option>
+  }
+  </select>
+
+  <label for="resume">Resume (PDF):</label>
+  <input type="file" id="resume" name="resume">
+
+  <button type="submit">Submit</button>
+
+}

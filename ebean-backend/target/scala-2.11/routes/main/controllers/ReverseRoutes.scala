@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/ebean-backend/conf/routes
-// @DATE:Wed Mar 08 23:34:17 CST 2023
+// @SOURCE:C:/Users/diego/Desktop/SMU/cs4345/Remake-Scott-Lab/ebean-backend/conf/routes
+// @DATE:Thu Mar 09 18:17:27 CST 2023
 
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
 import play.core.routing.{ HandlerDef, ReverseRouteContext, queryString, dynamicString }
@@ -12,6 +12,27 @@ import _root_.play.libs.F
 
 // @LINE:6
 package controllers {
+
+  // @LINE:21
+  class ReverseApplicationController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:21
+    def submitApplication(): Call = {
+      import ReverseRouteContext.empty
+      Call("POST", _prefix + { _defaultPrefix } + "submitApplication")
+    }
+  
+    // @LINE:22
+    def showApplicationForm(username:String): Call = {
+      import ReverseRouteContext.empty
+      Call("GET", _prefix + { _defaultPrefix } + "applicationForm/" + implicitly[PathBindable[String]].unbind("username", dynamicString(username)))
+    }
+  
+  }
 
   // @LINE:6
   class ReverseHomeController(_prefix: => String) {

@@ -53,6 +53,18 @@ public class User extends Model {
     @Constraints.Required
     public String status;
 
+    @Constraints.Required
+    public String coursesTaken;
+
+    @Constraints.Required
+    public String degreePlan;
+
+    @Constraints.Required
+    public String startingSemester;
+
+    @Constraints.Required
+    public String expectedGraduation;
+
     // getters and setters
     public Long getId() {
         return id;
@@ -152,6 +164,32 @@ public class User extends Model {
         this.status = status;
     }
 
+    public String getCoursesTaken() {
+        return coursesTaken;
+    }
+    public void setCoursesTaken(String coursesTaken) {
+        this.coursesTaken = coursesTaken;
+    }
+
+    public String getDegreePlan() {
+        return degreePlan;
+    }
+    public void setDegreePlan(String degreePlan) {
+        this.degreePlan = degreePlan;
+    }
+    public String getStartingSemester() {
+        return startingSemester;
+    }
+    public void setStartingSemester(String startingSemester) {
+        this.startingSemester = startingSemester;
+    }
+    public String getExpectedGraduation() {
+        return expectedGraduation;
+    }
+    public void setExpectedGraduation(String expectedGraduation) {
+        this.expectedGraduation = expectedGraduation;
+    }
+
     public static Find<Long, User> find = new Find<Long, User>(){};
 
     public static User findByName(String name) {
@@ -186,6 +224,8 @@ public class User extends Model {
                 u.zipcode == null || u.zipcode.isEmpty() ||
                 u.comments == null || u.comments.isEmpty() ||
                 u.status == null || u.status.isEmpty();
-
+    }
+    public boolean alreadySubmittedGeneralApplication() {
+        return Application.findByUserId(this.id) == null;
     }
 }

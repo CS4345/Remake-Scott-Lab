@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/Frontend/conf/routes
-// @DATE:Thu Mar 09 00:38:04 CST 2023
+// @SOURCE:C:/Users/diego/Desktop/SMU/cs4345/Remake-Scott-Lab/Frontend/conf/routes
+// @DATE:Thu Mar 09 19:58:07 CST 2023
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -18,6 +18,26 @@ package controllers.javascript {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
+  
+    // @LINE:17
+    def submissionHandler: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.submissionHandler",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "submitApplication"})
+        }
+      """
+    )
+  
+    // @LINE:16
+    def applyHandler: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.applyHandler",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "applicationForm"})
+        }
+      """
+    )
   
     // @LINE:10
     def signup: JavaScriptReverseRoute = JavaScriptReverseRoute(
@@ -39,7 +59,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:17
+    // @LINE:14
     def updateHandler: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.updateHandler",
       """
@@ -71,7 +91,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:15
+  // @LINE:21
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -79,7 +99,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:15
+    // @LINE:21
     def at: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.at",
       """

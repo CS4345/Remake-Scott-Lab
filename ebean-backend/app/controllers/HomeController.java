@@ -27,6 +27,5 @@ public class HomeController extends Controller {
         Seq<String> infoSeq = JavaConverters.asScalaBufferConverter(infos).asScala().toSeq();
         Logger.info("infos"+ infoSeq);
         return ok(views.html.info.render(infoSeq));
-
     }
 }

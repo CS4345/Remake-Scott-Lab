@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/ebean-backend/conf/routes
-// @DATE:Wed Mar 08 23:34:17 CST 2023
+// @SOURCE:C:/Users/diego/Desktop/SMU/cs4345/Remake-Scott-Lab/ebean-backend/conf/routes
+// @DATE:Thu Mar 09 18:17:27 CST 2023
 
 package router
 
@@ -20,6 +20,8 @@ class Routes(
   HomeController_0: controllers.HomeController,
   // @LINE:9
   UserController_1: controllers.UserController,
+  // @LINE:21
+  ApplicationController_2: controllers.ApplicationController,
   val prefix: String
 ) extends GeneratedRouter {
 
@@ -28,14 +30,16 @@ class Routes(
     // @LINE:6
     HomeController_0: controllers.HomeController,
     // @LINE:9
-    UserController_1: controllers.UserController
-  ) = this(errorHandler, HomeController_0, UserController_1, "/")
+    UserController_1: controllers.UserController,
+    // @LINE:21
+    ApplicationController_2: controllers.ApplicationController
+  ) = this(errorHandler, HomeController_0, UserController_1, ApplicationController_2, "/")
 
   import ReverseRouteContext.empty
 
   def withPrefix(prefix: String): Routes = {
     router.RoutesPrefix.setPrefix(prefix)
-    new Routes(errorHandler, HomeController_0, UserController_1, prefix)
+    new Routes(errorHandler, HomeController_0, UserController_1, ApplicationController_2, prefix)
   }
 
   private[this] val defaultPrefix: String = {
@@ -49,6 +53,8 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """info""", """controllers.HomeController.info()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """users/getAccountStatus""", """controllers.UserController.checkUpdateStatus()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """users/update""", """controllers.UserController.updateAccount()"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """submitApplication""", """controllers.ApplicationController.submitApplication()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """applicationForm/""" + "$" + """username<[^/]+>""", """controllers.ApplicationController.showApplicationForm(username:String)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -158,6 +164,40 @@ class Routes(
     )
   )
 
+  // @LINE:21
+  private[this] lazy val controllers_ApplicationController_submitApplication6_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("submitApplication")))
+  )
+  private[this] lazy val controllers_ApplicationController_submitApplication6_invoker = createInvoker(
+    ApplicationController_2.submitApplication(),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.ApplicationController",
+      "submitApplication",
+      Nil,
+      "POST",
+      """""",
+      this.prefix + """submitApplication"""
+    )
+  )
+
+  // @LINE:22
+  private[this] lazy val controllers_ApplicationController_showApplicationForm7_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("applicationForm/"), DynamicPart("username", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_ApplicationController_showApplicationForm7_invoker = createInvoker(
+    ApplicationController_2.showApplicationForm(fakeValue[String]),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.ApplicationController",
+      "showApplicationForm",
+      Seq(classOf[String]),
+      "GET",
+      """""",
+      this.prefix + """applicationForm/""" + "$" + """username<[^/]+>"""
+    )
+  )
+
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
@@ -195,6 +235,18 @@ class Routes(
     case controllers_UserController_updateAccount5_route(params) =>
       call { 
         controllers_UserController_updateAccount5_invoker.call(UserController_1.updateAccount())
+      }
+  
+    // @LINE:21
+    case controllers_ApplicationController_submitApplication6_route(params) =>
+      call { 
+        controllers_ApplicationController_submitApplication6_invoker.call(ApplicationController_2.submitApplication())
+      }
+  
+    // @LINE:22
+    case controllers_ApplicationController_showApplicationForm7_route(params) =>
+      call(params.fromPath[String]("username", None)) { (username) =>
+        controllers_ApplicationController_showApplicationForm7_invoker.call(ApplicationController_2.showApplicationForm(username))
       }
   }
 }

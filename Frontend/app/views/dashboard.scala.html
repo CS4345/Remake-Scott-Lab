@@ -150,7 +150,7 @@
             margin: 0 auto;
         }
 
-        #apply-general {
+        #apply-general-button {
             background-color: #6c63ff;
             color: #fff;
             border: none;
@@ -178,6 +178,13 @@
             box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
             overflow-y: hidden;
         }
+        #applicationFormSection {
+             display: block;
+             position: absolute;
+             bottom: 0;
+             left: 0;
+             right: 0;
+         }
     </style>
 </head>
 
@@ -216,7 +223,7 @@
                             display: flex;
                             align-items: center;
                         ">
-                        <button class="apply-general" id="apply-general">Apply</button>
+                        <button class="apply-general-button" id="apply-general-button" type="submit" name="action">Apply</button>
                     </div>
                 </div>
                 <p>List of current job openings here</p>
@@ -410,6 +417,11 @@
             </div>
         </div>
     </div>
+    <div id="applicationFormSection">
+        <form action="/submitApplication" method="POST" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc;">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
     <script src="assets/javascripts/fetchJobs.js"></script>
     <script>
         console.log("cai lon ma", @status);
@@ -417,7 +429,7 @@
     <script id="profile" src="assets/javascripts/fetchProfileState.js" status=@status> </script>
     <script>
         // Get the "Complete Profile" button and the paper modal overlay
-        const applyButton = document.getElementById("apply-general")
+        const applyButton = document.getElementById("apply-general-button")
         const completeProfileButton = document.getElementById("complete-profile-button");
         const paperModalOverlay = document.querySelector(".paper-modal-overlay");
         const paperModalOverlayApply = document.getElementById("modal-apply")
@@ -435,13 +447,21 @@
         });
 
         // Add a click even listener when user click "Apply" button
+        applicationFormSection = document.getElementById("applicationFormSection");
         applyButton.addEventListener("click", () => {
-            // Show the paper modal overaly
-            paperModalOverlayApply.style.display = "flex";
-            setTimeout(() => {
-                paperModalOverlayApply.classList.add("show");
-            }, 0);
-        })
+            fetch('/applicationForm')
+                    .then(response => response.text())
+                    .then(html => {
+                        // Display the HTML in the application form section of the dashboard
+                        applicationFormSection.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        // Handle the error
+                    });
+        });
+
+
 
 
         // Add a click event listener to the paper modal overlay

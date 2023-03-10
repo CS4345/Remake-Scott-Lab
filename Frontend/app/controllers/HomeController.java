@@ -1,17 +1,20 @@
 package controllers;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import play.data.Form;
 import play.data.FormFactory;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.libs.concurrent.HttpExecutionContext;
-import play.libs.ws.WSResponse;
+import play.libs.ws.*;
 import views.html.*;
 
 import javax.inject.Inject;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
+
+import static play.shaded.ahc.io.netty.handler.codec.http.websocketx.WebSocketScheme.WS;
 
 /**
  * Software Service Market Place
@@ -124,6 +127,37 @@ public class HomeController extends Controller {
                     } else {
                         System.out.println("response null");
                         return ok(views.html.dashboard.render("nil"));
+                    }
+                }, ec.current());
+    }
+    public  CompletionStage<Result> applyHandler() {
+        String username = session().get("username");
+        System.out.println("User trying to apply: " + username);
+
+        WSClient ws = play.test.WSTestClient.newClient(9005);
+        WSRequest request = ws.url("http://localhost:9005/applicationForm/" + username);
+
+        return request.get()
+                .thenApplyAsync(response -> {
+                    if (response.getStatus() == 200) {
+                        String html = response.getBody();
+                        return ok(html);
+                    } else {
+                        return ok("Failed to load application form");
+                    }
+                }, ec.current());
+    }
+    public  CompletionStage<Result> submissionHandler() {
+        WSClient ws = play.test.WSTestClient.newClient(9005);
+        WSRequest request = ws.url("http://localhost:9005/submitApplication");
+
+        return request.get()
+                .thenApplyAsync(response -> {
+                    if (response.getStatus() == 200) {
+                        String html = response.getBody();
+                        return ok(html);
+                    } else {
+                        return ok("Failed to load application form");
                     }
                 }, ec.current());
     }
