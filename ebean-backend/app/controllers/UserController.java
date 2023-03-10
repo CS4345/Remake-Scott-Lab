@@ -62,6 +62,11 @@ public class UserController extends Controller {
             String zipcode = req.get("zipcode").asText();
             String comments = req.get("comments").asText();
             String status = req.get("status").asText();
+            String answerOne = req.get("answerOne").asText();
+            String answerTwo = req.get("answerTwo").asText();
+            String startingSemester = req.get("startingSemester").asText();
+            String expectedGraduation = req.get("expectedGraduation").asText();
+            String degreePlan = req.get("degreePlan").asText();
 
             System.out.println("Update for: " + username);
             if (username == null || username.isEmpty()) {
@@ -90,6 +95,11 @@ public class UserController extends Controller {
                 user.setZipcode(zipcode);
                 user.setComments(comments);
                 user.setStatus(status);
+                user.setAnswerOne(answerOne);
+                user.setAnswerTwo(answerTwo);
+                user.setStartingSemester(startingSemester);
+                user.setExpectedGraduation(expectedGraduation);
+                user.setDegreePlan(degreePlan);
 
                 user.update();
 

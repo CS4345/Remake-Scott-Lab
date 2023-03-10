@@ -30,6 +30,11 @@ public class User extends Controller {
     private String zipcode;
     private String comments;
     private String status;
+    private String answerOne;
+    private String answerTwo;
+    private String startingSemester;
+    private String expectedGraduation;
+    private String degreePlan;
 
     public String getUsername() {
         return username;
@@ -114,6 +119,17 @@ public class User extends Controller {
 
     public void setStatus(String status) { this.status = status; }
 
+    public String getAnswerOne() {return answerOne;}
+    public void setAnswerOne(String answerOne) { this.answerOne = answerOne; }
+    public String getAnswerTwo() {return answerTwo;}
+    public void setAnswerTwo(String answerTwo) { this.answerTwo = answerTwo; }
+    public String getStartingSemester() {return startingSemester;}
+    public void setStartingSemester(String startingSemester) { this.startingSemester = startingSemester; }
+    public String getExpectedGraduation() {return expectedGraduation;}
+    public void setExpectedGraduation(String expectedGraduation) { this.expectedGraduation = expectedGraduation; }
+    public String getDegreePlan() {return degreePlan;}
+    public void setDegreePlan(String degreePlan) { this.degreePlan = degreePlan; }
+
     public CompletionStage<WSResponse> checkAuthorized() {
 
         WSClient ws = play.test.WSTestClient.newClient(9005);
@@ -161,6 +177,11 @@ public class User extends Controller {
         res.put("zipcode", this.zipcode != null ? this.zipcode : "");
         res.put("comments", this.comments != null ? this.comments : "");
         res.put("status", this.status != null ? this.status : "");
+        res.put("answerOne", this.answerOne != null ? this.answerOne : "");
+        res.put("answerTwo", this.answerTwo != null ? this.answerTwo : "");
+        res.put("startingSemester", this.startingSemester != null ? this.startingSemester : "");
+        res.put("expectedGraduation", this.expectedGraduation != null ? this.expectedGraduation : "");
+        res.put("degreePlan", this.degreePlan != null ? this.degreePlan : "");
 
         System.out.println(username);
         System.out.println(researchArea);
@@ -176,6 +197,12 @@ public class User extends Controller {
         System.out.println(zipcode);
         System.out.println(comments);
         System.out.println(status);
+        System.out.println(answerOne);
+        System.out.println(answerTwo);
+        System.out.println(startingSemester);
+        System.out.println(expectedGraduation);
+        System.out.println(degreePlan);
+
 
         WSRequest request = ws.url("http://localhost:9005/users/update");
         return request.addHeader("Content-Type", "application/json")

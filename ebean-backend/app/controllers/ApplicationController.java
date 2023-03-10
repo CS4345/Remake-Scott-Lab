@@ -102,7 +102,7 @@ public class ApplicationController extends Controller {
     }
     public Result submitApplication() throws SQLException {
         Form<ApplicationFormData> applicationForm = Form.form(ApplicationFormData.class).bindFromRequest();
-
+        System.out.println("Submitting application");
         if(applicationForm.hasErrors()) {
             return badRequest(views.html.applicationForm.render(null, null, null));
         } else {

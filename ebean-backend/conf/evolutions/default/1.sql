@@ -44,6 +44,8 @@ create table user (
   degree_plan                   varchar(255),
   starting_semester             varchar(255),
   expected_graduation           varchar(255),
+  answer_one                    varchar(255),
+  answer_two                    varchar(255),
   constraint pk_user primary key (id)
 );
 

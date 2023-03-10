@@ -355,6 +355,16 @@
                             <label>Status</label>
                         </div>
                     </div>
+                    <div id="security-questions">
+                        <div class="input-field col s6">
+                            <input id="answerOne" name="answerOne" type="text" class="validate">
+                            <label for="question1">Security Question 1: What street did you grow up on?</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="answerTwo" name="answerTwo" type="text" class="validate">
+                            <label for="question2">Security Question 2: What's your mother's maiden name?</label>
+                        </div>
+                    </div>
                     <script>
                         $(document).ready(function () {
                             $('#status').on('change', function () {
@@ -472,6 +482,16 @@
                 paperModalOverlay.classList.remove("show");
                 setTimeout(() => {
                     paperModalOverlay.style.display = "none";
+                }, 500);
+            }
+        });
+        // Add a click event listener to the paper modal overlay
+        paperModalOverlayApply.addEventListener("click", (event) => {
+            // If the user clicked outside the paper modal, hide the overlay
+            if (event.target === paperModalOverlayApply) {
+                paperModalOverlayApply.classList.remove("show");
+                setTimeout(() => {
+                    paperModalOverlayApply.style.display = "none";
                 }, 500);
             }
         });

@@ -65,6 +65,12 @@ public class User extends Model {
     @Constraints.Required
     public String expectedGraduation;
 
+    @Constraints.Required
+    public String answerOne;
+
+    @Constraints.Required
+    public String answerTwo;
+
     // getters and setters
     public Long getId() {
         return id;
@@ -176,6 +182,19 @@ public class User extends Model {
     }
     public void setDegreePlan(String degreePlan) {
         this.degreePlan = degreePlan;
+    }
+
+    public String getAnswerOne() {
+        return answerOne;
+    }
+    public void setAnswerOne(String answerOne) {
+        this.answerOne = answerOne;
+    }
+    public String getAnswerTwo() {
+        return answerTwo;
+    }
+    public void setAnswerTwo(String answerTwo) {
+        this.answerTwo = answerTwo;
     }
     public String getStartingSemester() {
         return startingSemester;
