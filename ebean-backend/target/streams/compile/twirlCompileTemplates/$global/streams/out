@@ -1,0 +1,4 @@
+[error] C:\Users\diego\Desktop\SMU\cs4345\Remake-Scott-Lab\ebean-backend\app\views\applicationForm.scala.html:106: Expected '}' but found 'EOF'
+[error]   </div>
+[error]         ^
+[error] (compile:twirlCompileTemplates) Twirl compilation failed

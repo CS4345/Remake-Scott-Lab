@@ -3,67 +3,105 @@
 @import routes.ApplicationController
 @(user: User, positions: Seq[Position], applicationForm: Form[ApplicationFormData])
 
-<h1>TA Application Form</h1>
-
-@helper.form(action = ApplicationController.submitApplication()) {
-
-  <label for="firstName">First Name:</label>
-  @user.firstname
-
-  <label for="lastName">Last Name:</label>
-  @user.lastname
-
-  <label for="email">Email:</label>
-  @user.email
-
-  <label for="phoneNumber">Phone Number:</label>
-  @user.phone
-
-  <label for="degreePlan">Current Degree Plan:</label>
-  @user.degreePlan
-
-  <label for="startingSemester">Starting Semester:</label>
-  @user.startingSemester
-
-  <label for="expectedGraduation">Expected Graduation Semester:</label>
-  @user.expectedGraduation
-
-  <label for="coursesTaken">Courses Taken:</label>
-  <select multiple id="coursesTaken" name="coursesTaken">
-  @for(position <- positions) {
-    <option value="@position.position_id">@position.courseTitle</option>
+  @helper.form(action = ApplicationController.submitApplication()) {
+    <div class="row">
+      <div class="input-field col s6">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" value="@user.firstname" readonly>
+      </div>
+      <div class="input-field col s6">
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" value="@user.lastname" readonly>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="@user.email" readonly>
+      </div>
+      <div class="input-field col s6">
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" value="@user.phone" readonly>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <label for="degreePlan">Current Degree Plan:</label>
+        <input type="text" id="degreePlan" name="degreePlan" value="@user.degreePlan" readonly>
+      </div>
+      <div class="input-field col s6">
+        <label for="startingSemester">Starting Semester:</label>
+        <input type="text" id="startingSemester" name="startingSemester" value="@user.startingSemester" readonly>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <label for="expectedGraduation">Expected Graduation Semester:</label>
+        <input type="text" id="expectedGraduation" name="expectedGraduation" value="@user.expectedGraduation" readonly>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <label for="coursesTaken">Courses taken before:</label>
+        <select multiple id="coursesTaken" name="coursesTaken[]" required>
+        @for(position <- positions) {
+          <option value="@position.position_id">@position.courseTitle</option>
+        }
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <label for="preference1">1st Preference to be TA for:</label>
+        <select name="preference1" required>
+          <option value="" disabled selected>Select a course</option>
+          @for(position <- positions) {
+            <option value="@position.position_id">@position.courseTitle</option>
+          }
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <label for="preference2">2nd Preference to be TA for:</label>
+        <select name="preference2">
+          <option value="" disabled selected>Select a course</option>
+          @for(position <- positions) {
+            <option value="@position.position_id">@position.courseTitle</option>
+          }
+          </select>
+        </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <label for="preference3">3rd Preference to be TA for:</label>
+        <select name="preference3">
+          <option value="" disabled selected>Select a course</option>
+          @for(position <- positions) {
+            <option value="@position.position_id">@position.courseTitle</option>
+          }
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <label for="coursesNotPreferred">Courses Not Preferred:</label>
+        <select multiple id="coursesNotPreferred" name="coursesNotPreferred">
+        @for(position <- positions) {
+          <option value="@position.position_id">@position.courseTitle</option>
+        }
+        </select>
+      </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s6">
+      <label for="resume">Resume (PDF):</label>
+      <input type="file" id="resume" name="resume">
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <button id="submit-app-button" type="submit" name="action">Submit</button>
+    </div>
+  </div>
   }
-  </select>
-
-  <label for="preference1">1st Preference to be TA for:</label>
-  <select name="position1">
-  @for(position <- positions) {
-    <option value="@position.position_id">@position.courseTitle</option>
-  }
-  </select>
-  <label for="preference2">2nd Preference to be TA for:</label>
-  <select name="position2">
-  @for(position <- positions) {
-    <option value="@position.position_id">@position.courseTitle</option>
-  }
-  </select>
-  <label for="preference3">3rd Preference to be TA for:</label>
-  <select name="position3">
-  @for(position <- positions) {
-    <option value="@position.position_id">@position.courseTitle</option>
-  }
-  </select>
-
-  <label for="coursesNotPreferred">Courses Not Preferred:</label>
-  <select multiple id="coursesNotPreferred" name="coursesNotPreferred">
-  @for(position <- positions) {
-    <option value="@position.position_id">@position.courseTitle</option>
-  }
-  </select>
-
-  <label for="resume">Resume (PDF):</label>
-  <input type="file" id="resume" name="resume">
-
-  <button type="submit">Submit</button>
-
-}

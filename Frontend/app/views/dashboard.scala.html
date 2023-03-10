@@ -178,13 +178,6 @@
             box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
             overflow-y: hidden;
         }
-        #applicationFormSection {
-             display: block;
-             position: absolute;
-             bottom: 0;
-             left: 0;
-             right: 0;
-         }
     </style>
 </head>
 
@@ -417,10 +410,15 @@
             </div>
         </div>
     </div>
-    <div id="applicationFormSection">
-        <form action="/submitApplication" method="POST" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc;">
-            <button type="submit">Submit</button>
-        </form>
+    <div class="paper-modal-overlay" id="application-overlay">
+        <div class="paper-modal">
+            <div class="modal-header">
+                TA Application
+            </div>
+            <div class="modal-content" id="applicationFormSection">
+
+            </div>
+        </div>
     </div>
     <script src="assets/javascripts/fetchJobs.js"></script>
     <script>
@@ -432,7 +430,7 @@
         const applyButton = document.getElementById("apply-general-button")
         const completeProfileButton = document.getElementById("complete-profile-button");
         const paperModalOverlay = document.querySelector(".paper-modal-overlay");
-        const paperModalOverlayApply = document.getElementById("modal-apply")
+        const paperModalOverlayApply = document.getElementById("application-overlay");
 
         // Hide the paper modal overlay by default
         paperModalOverlay.style.display = "none";
@@ -448,7 +446,10 @@
 
         // Add a click even listener when user click "Apply" button
         applicationFormSection = document.getElementById("applicationFormSection");
-        applyButton.addEventListener("click", () => {
+        applyButton.addEventListener("click", () => {paperModalOverlay.style.display = "flex";
+            setTimeout(() => {
+                paperModalOverlayApply.classList.add("show");
+            }, 0);
             fetch('/applicationForm')
                     .then(response => response.text())
                     .then(html => {
