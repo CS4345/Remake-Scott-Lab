@@ -20,7 +20,7 @@ if (status == "true") {
     userModal.innerHTML = `
 <div style="">
 <div style="display: flex; justify-content: center;">
-        <img src="https://ionicframework.com/docs/img/demos/avatar.svg" style="width: 90%; height: auto;"/>
+        <img src="https://ionicframework.com/docs/img/demos/avatar.svg" style="width: 60%; height: auto;"/>
         </div>
         <p>First Name: ${first}</p>
         <p>Last Name: ${last}</p>

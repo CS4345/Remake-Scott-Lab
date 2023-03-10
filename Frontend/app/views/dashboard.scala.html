@@ -431,7 +431,7 @@
                 TA Application
             </div>
             <div class="modal-content" id="applicationFormSection">
-
+                <iframe id="my-frame" frameBorder="0" height="95%"></iframe>
             </div>
         </div>
     </div>
@@ -466,8 +466,29 @@
             fetch('/applicationForm')
                     .then(response => response.text())
                     .then(html => {
-                        // Display the HTML in the application form section of the dashboard
-                        applicationFormSection.innerHTML = html;
+                        frame = document.getElementById("my-frame");
+                        frame.srcdoc = html;
+
+                        // Create a new DOM parser
+                        const parser = new DOMParser();
+
+                        // Parse the iframe's srcdoc content into a new document
+                        const iframeDoc = parser.parseFromString(frame.srcdoc, "text/html");
+
+                        // Find the form element by its ID
+                        const applyForm = iframeDoc.getElementById("applyForm");
+
+                        // Get the action URL from the form's "action" attribute
+                        const actionUrl = applyForm.getAttribute("action");
+
+                        // Prepend "localhost" to the action URL
+                        const newActionUrl = "http://localhost:9005" + actionUrl;
+
+                        // Set the new action URL on the form's "action" attribute
+                        applyForm.setAttribute("action", newActionUrl);
+
+                        // Update the iframe's srcdoc content with the modified document
+                        frame.srcdoc = iframeDoc.documentElement.outerHTML;
                     })
                     .catch(error => {
                         console.log(error);
