@@ -157,6 +157,18 @@ public class User extends Controller {
                 });
     }
 
+    public static CompletionStage<WSResponse> getAccountInfo(String username) {
+        WSClient ws = play.test.WSTestClient.newClient(9005);
+
+        String url = "http://localhost:9005/users/" + username;
+        WSRequest request = ws.url(url);
+        return request.addHeader("Content-Type", "application/json")
+                .get()
+                .thenApply((WSResponse r) -> {
+                    return r;
+                });
+    }
+
     @AddCSRFToken
     public CompletionStage<WSResponse> updateUser(String username) {
         System.out.println("Update Info for User: " + username);

@@ -20,6 +20,26 @@ import static play.shaded.ahc.io.netty.handler.codec.http.websocketx.WebSocketSc
  * Software Service Market Place
  */
 public class HomeController extends Controller {
+    String[] info;
+    void getInfo(String username) {
+        CompletableFuture<String[]> infoFuture = User.getAccountInfo(username)
+                .thenApplyAsync((WSResponse response) -> {
+                    System.out.println(response.asJson());
+                    String firstname = String.valueOf(response.asJson().get("firstname"));
+                    String lastname = String.valueOf(response.asJson().get("lastname"));
+                    String posStatus = String.valueOf(response.asJson().get("status"));
+                    String email = String.valueOf(response.asJson().get("email"));
+                    String phone = String.valueOf(response.asJson().get("phone"));
+                    return new String[]{firstname, lastname, posStatus, email, phone};
+                }, ec.current())
+                .toCompletableFuture();
+
+        info = infoFuture.join();
+        System.out.println("UPDATE INFO: ");
+        for (String inf:info) {
+            System.out.println(inf);
+        }
+    }
 
     @Inject
     HttpExecutionContext ec;
@@ -72,7 +92,8 @@ public class HomeController extends Controller {
                                 .toCompletableFuture();
 
                         String status = statusFuture.join();
-                        return ok(views.html.dashboard.render(status));
+                        getInfo(username);
+                        return ok(views.html.dashboard.render(status, info[0], info[1], info[2], info[3], info[4]));
 
                     } else {
                         System.out.println("response null");
@@ -132,10 +153,11 @@ public class HomeController extends Controller {
                                 .toCompletableFuture();
 
                         String status = statusFuture.join();
-                        return ok(views.html.dashboard.render(status));
+                        getInfo(username);
+                        return ok(views.html.dashboard.render(status, info[0], info[1], info[2], info[3], info[4]));
                     } else {
                         System.out.println("response null");
-                        return ok(views.html.dashboard.render("nil"));
+                        return ok(views.html.dashboard.render("nil", "nil", "nil", "nil", "nil", "nil"));
                     }
                 }, ec.current());
     }

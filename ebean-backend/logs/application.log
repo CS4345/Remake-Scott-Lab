@@ -161,3 +161,11 @@ Caused by: java.sql.SQLException: Column 'position_id' not found.
 2023-03-10 14:53:58,894 [INFO] from application in application-akka.actor.default-dispatcher-8 - Creating Pool for datasource 'default'
 2023-03-10 14:53:58,950 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-8 - Database [default] connected at jdbc:mysql://localhost:3306/CS4345?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
 2023-03-10 14:53:59,086 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-8 - Application started (Dev)
+2023-03-10 15:01:53,792 [INFO] from application in application-akka.actor.default-dispatcher-3 - Shutting down connection pool.
+2023-03-10 15:01:54,011 [INFO] from application in application-akka.actor.default-dispatcher-3 - Creating Pool for datasource 'default'
+2023-03-10 15:01:54,074 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-3 - Database [default] connected at jdbc:mysql://localhost:3306/CS4345?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+2023-03-10 15:01:54,173 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-3 - Application started (Dev)
+2023-03-10 15:28:30,862 [INFO] from application in application-akka.actor.default-dispatcher-33 - Shutting down connection pool.
+2023-03-10 15:28:30,977 [INFO] from application in application-akka.actor.default-dispatcher-33 - Creating Pool for datasource 'default'
+2023-03-10 15:28:31,032 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-33 - Database [default] connected at jdbc:mysql://localhost:3306/CS4345?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+2023-03-10 15:28:31,199 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-33 - Application started (Dev)

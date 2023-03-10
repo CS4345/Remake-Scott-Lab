@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/ebean-backend/conf/routes
-// @DATE:Fri Mar 10 13:13:48 CST 2023
+// @DATE:Fri Mar 10 15:01:48 CST 2023
 
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
 import play.core.routing.{ HandlerDef, ReverseRouteContext, queryString, dynamicString }
@@ -62,16 +62,10 @@ package controllers {
     }
 
   
-    // @LINE:20
-    def updateAccount(): Call = {
+    // @LINE:17
+    def checkUpdateStatus(): Call = {
       import ReverseRouteContext.empty
-      Call("POST", _prefix + { _defaultPrefix } + "users/update")
-    }
-  
-    // @LINE:9
-    def authenticate(): Call = {
-      import ReverseRouteContext.empty
-      Call("POST", _prefix + { _defaultPrefix } + "login")
+      Call("GET", _prefix + { _defaultPrefix } + "users/getAccountStatus")
     }
   
     // @LINE:13
@@ -80,10 +74,22 @@ package controllers {
       Call("POST", _prefix + { _defaultPrefix } + "signup")
     }
   
-    // @LINE:17
-    def checkUpdateStatus(): Call = {
+    // @LINE:20
+    def updateAccount(): Call = {
       import ReverseRouteContext.empty
-      Call("GET", _prefix + { _defaultPrefix } + "users/getAccountStatus")
+      Call("POST", _prefix + { _defaultPrefix } + "users/update")
+    }
+  
+    // @LINE:23
+    def getUser(username:String): Call = {
+      import ReverseRouteContext.empty
+      Call("GET", _prefix + { _defaultPrefix } + "users/" + implicitly[PathBindable[String]].unbind("username", dynamicString(username)))
+    }
+  
+    // @LINE:9
+    def authenticate(): Call = {
+      import ReverseRouteContext.empty
+      Call("POST", _prefix + { _defaultPrefix } + "login")
     }
   
   }

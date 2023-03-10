@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/ebean-backend/conf/routes
-// @DATE:Fri Mar 10 13:13:48 CST 2023
+// @DATE:Fri Mar 10 15:01:48 CST 2023
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -83,22 +83,12 @@ package controllers.javascript {
     }
 
   
-    // @LINE:20
-    def updateAccount: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.UserController.updateAccount",
+    // @LINE:17
+    def checkUpdateStatus: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.UserController.checkUpdateStatus",
       """
         function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "users/update"})
-        }
-      """
-    )
-  
-    // @LINE:9
-    def authenticate: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.UserController.authenticate",
-      """
-        function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "login"})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "users/getAccountStatus"})
         }
       """
     )
@@ -113,12 +103,32 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:17
-    def checkUpdateStatus: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.UserController.checkUpdateStatus",
+    // @LINE:20
+    def updateAccount: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.UserController.updateAccount",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "users/getAccountStatus"})
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "users/update"})
+        }
+      """
+    )
+  
+    // @LINE:23
+    def getUser: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.UserController.getUser",
+      """
+        function(username0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "users/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("username", encodeURIComponent(username0))})
+        }
+      """
+    )
+  
+    // @LINE:9
+    def authenticate: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.UserController.authenticate",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "login"})
         }
       """
     )

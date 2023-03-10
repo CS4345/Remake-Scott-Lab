@@ -1,4 +1,4 @@
-@(status: String)
+@(status: String, firstname: String, lastname: String, aStatus: String, email: String, phone: String)
 <!DOCTYPE html>
 <html>
 
@@ -133,7 +133,7 @@
         }
 
         .user-modal {
-            width: "100%";
+            width: 100%;
             /* background-color: gray; */
             height: 70%;
             display: flex;
@@ -435,11 +435,9 @@
             </div>
         </div>
     </div>
+
     <script src="assets/javascripts/fetchJobs.js"></script>
-    <script>
-        console.log("cai lon ma", @status);
-    </script>
-    <script id="profile" src="assets/javascripts/fetchProfileState.js" status=@status> </script>
+    <script id="profile" src="assets/javascripts/fetchProfileState.js" status=@status first=@firstname last=@lastname aStatus=@aStatus email=@email phone=@phone > </script>
     <script>
         // Get the "Complete Profile" button and the paper modal overlay
         const applyButton = document.getElementById("apply-general-button")
@@ -476,9 +474,6 @@
                         // Handle the error
                     });
         });
-
-
-
 
         // Add a click event listener to the paper modal overlay
         paperModalOverlay.addEventListener("click", (event) => {

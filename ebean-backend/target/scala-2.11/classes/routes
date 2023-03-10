@@ -20,5 +20,6 @@ GET     /users/getAccountStatus      controllers.UserController.checkUpdateStatu
 POST    /users/update                controllers.UserController.updateAccount()
 POST    /submitApplication    controllers.ApplicationController.submitApplication()
 GET   /applicationForm/:username  controllers.ApplicationController.showApplicationForm(username: String)
+GET /users/:username controllers.UserController.getUser(username: String)
 
 

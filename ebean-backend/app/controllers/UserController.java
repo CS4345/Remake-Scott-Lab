@@ -145,6 +145,21 @@ public class UserController extends Controller {
     }
 
     // Add by Eric
+
+    public Result getUser(String username) {
+        System.out.println("Retrieving user basic info (lastname, firstname, status");
+        User u = User.findByName(username);
+        ObjectNode result = null;
+        if (u != null) {
+            result = Json.newObject();
+            result.put("lastname", u.lastname);
+            result.put("firstname", u.firstname);
+            result.put("status", u.status);
+            result.put("email", u.email);
+            result.put("phone", u.phone);
+        }
+        return ok(result);
+    }
     public Result checkUpdateStatus() {
         System.out.print("Checking account completion status for: ");
 
