@@ -14,7 +14,7 @@ GET     /register                   controllers.HomeController.signupHandler()
 GET     /updateInfo               controllers.HomeController.updateHandler()
 
 GET   /applicationForm          controllers.HomeController.applyHandler()
-POST  /submitApplication    controllers.HomeController.submissionHandler()
+POST  /submitApplication        controllers.HomeController.submissionHandler()
 
 
 # Map static resources from the /public folder to the /assets URL path

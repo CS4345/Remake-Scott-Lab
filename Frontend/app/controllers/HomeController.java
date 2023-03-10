@@ -82,6 +82,15 @@ public class HomeController extends Controller {
                 }, ec.current());
     }
 
+    /**
+     * brings up form to reset password
+     * the form will check security question answers
+     * @return
+     */
+    /*public CompletionStage<Result> resetPasswordHandler() {
+
+    }*/
+
     public CompletionStage<Result> signupHandler() {
 
         Form<User> registrationForm = formFactory.form(User.class).bindFromRequest();
