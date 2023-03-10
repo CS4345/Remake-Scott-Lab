@@ -154,3 +154,7 @@ Caused by: java.sql.SQLException: Column 'position_id' not found.
 2023-03-10 13:22:24,944 [INFO] from application in application-akka.actor.default-dispatcher-5 - Creating Pool for datasource 'default'
 2023-03-10 13:22:24,976 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-5 - Database [default] connected at jdbc:mysql://localhost:3306/CS4345?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
 2023-03-10 13:22:25,073 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-5 - Application started (Dev)
+2023-03-10 13:26:02,099 [INFO] from application in application-akka.actor.default-dispatcher-2 - Shutting down connection pool.
+2023-03-10 13:26:02,257 [INFO] from application in application-akka.actor.default-dispatcher-2 - Creating Pool for datasource 'default'
+2023-03-10 13:26:02,316 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-2 - Database [default] connected at jdbc:mysql://localhost:3306/CS4345?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+2023-03-10 13:26:02,469 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-2 - Application started (Dev)
