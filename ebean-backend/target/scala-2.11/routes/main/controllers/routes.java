@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/diego/Desktop/SMU/cs4345/Remake-Scott-Lab/ebean-backend/conf/routes
-// @DATE:Thu Mar 09 18:17:27 CST 2023
+// @SOURCE:/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/ebean-backend/conf/routes
+// @DATE:Fri Mar 10 13:13:48 CST 2023
 
 package controllers;
 

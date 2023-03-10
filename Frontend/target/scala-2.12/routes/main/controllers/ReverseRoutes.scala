@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/diego/Desktop/SMU/cs4345/Remake-Scott-Lab/Frontend/conf/routes
-// @DATE:Thu Mar 09 23:42:35 CST 2023
+// @SOURCE:/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/Frontend/conf/routes
+// @DATE:Fri Mar 10 13:16:41 CST 2023
 
 import play.api.mvc.Call
 

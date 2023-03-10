@@ -52,7 +52,7 @@ public class Position extends Model {
         List<Position> positions = new ArrayList<>();
 
         // Establish database connection
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/CS4345", "root", "toor");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/CS4345", "root", "123456");
 
         // Query the position table and fetch all positions
         String sql = "SELECT * FROM position";
@@ -61,8 +61,8 @@ public class Position extends Model {
 
         // Iterate through the result set and create Position objects
         while (rs.next()) {
-            long id = rs.getLong("position_id");
-            String title = rs.getString("course_title");
+            long id = rs.getLong("id");
+            String title = rs.getString("title");
             String faculty = rs.getString("faculty");
             String pay = rs.getString("pay");
             String hours = rs.getString("hours");
