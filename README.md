@@ -8,8 +8,6 @@ Installation Instructions: Your database should have a 'CS4345' schema and have 
 
 Usage Instructions: Provide instructions for using the system, including how to log in, how to add/edit/delete TAs, how to assign TAs to courses, and any other relevant functionality. Include screenshots and/or video demonstrations if possible.
 
-Contributions: Diego Paredes, Eric Vu, Scott MacKenzie, Rich Beverley
-
 License: No licensing information
 
 # Database setup: password - "toor" not "123456"
