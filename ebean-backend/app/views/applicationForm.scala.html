@@ -3,7 +3,7 @@
 @import routes.ApplicationController
 @(user: User, positions: Seq[Position], applicationForm: Form[ApplicationFormData])
 
-  @helper.form(action = ApplicationController.submitApplication(), Symbol("id") -> "applyForm") {
+  @helper.form(action = ApplicationController.submitApplication(user.username), Symbol("id") -> "applyForm") {
     <head>
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -17,69 +17,91 @@
               });
       </script>
     </head>
-    <div class="row">
-      <div class="input-field col s6">
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName" value="@user.firstname" readonly>
+    <div id="applyForm">
+      <div class="row">
+        <div class="input-field col s6">
+          <label for="firstName">First Name:</label>
+          <input type="text" id="firstName" name="firstName" value="@user.firstname" readonly>
+        </div>
+        <div class="input-field col s6">
+          <label for="lastName">Last Name:</label>
+          <input type="text" id="lastName" name="lastName" value="@user.lastname" readonly>
+        </div>
       </div>
-      <div class="input-field col s6">
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" name="lastName" value="@user.lastname" readonly>
+      <div class="row">
+        <div class="input-field col s6">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" value="@user.email" readonly>
+        </div>
+        <div class="input-field col s6">
+          <label for="phoneNumber">Phone Number:</label>
+          <input type="tel" id="phoneNumber" name="phoneNumber" value="@user.phone" readonly>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s6">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" value="@user.email" readonly>
+      <div class="row">
+        <div class="input-field col s6">
+          <label for="degreePlan">Current Degree Plan:</label>
+          <input type="text" id="degreePlan" name="degreePlan" value="@user.degreePlan" readonly>
+        </div>
+        <div class="input-field col s6">
+          <label for="startingSemester">Starting Semester:</label>
+          <input type="text" id="startingSemester" name="startingSemester" value="@user.startingSemester" readonly>
+        </div>
       </div>
-      <div class="input-field col s6">
-        <label for="phoneNumber">Phone Number:</label>
-        <input type="tel" id="phoneNumber" name="phoneNumber" value="@user.phone" readonly>
+      <div class="row">
+        <div class="input-field col s6">
+          <label for="expectedGraduation">Expected Graduation Semester:</label>
+          <input type="text" id="expectedGraduation" name="expectedGraduation" value="@user.expectedGraduation" readonly>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s6">
-        <label for="degreePlan">Current Degree Plan:</label>
-        <input type="text" id="degreePlan" name="degreePlan" value="@user.degreePlan" readonly>
-      </div>
-      <div class="input-field col s6">
-        <label for="startingSemester">Starting Semester:</label>
-        <input type="text" id="startingSemester" name="startingSemester" value="@user.startingSemester" readonly>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s6">
-        <label for="expectedGraduation">Expected Graduation Semester:</label>
-        <input type="text" id="expectedGraduation" name="expectedGraduation" value="@user.expectedGraduation" readonly>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <label for="coursesTaken">Courses taken before:</label>
-          <br>
-        <select multiple id="coursesTaken" name="coursesTaken[]" required>
-        @for(position <- positions) {
-          <option value="@position.position_id">@position.courseTitle</option>
-        }
-        </select>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <label for="preference1">1st Preference to be TA for:</label>
-          <br>
-        <select name="preference1" required>
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="coursesTaken">Courses taken before:</label>
+            <br>
+          <select multiple id="coursesTaken" name="coursesTaken[]">
           @for(position <- positions) {
             <option value="@position.position_id">@position.courseTitle</option>
           }
-        </select>
+          </select>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <label for="preference2">2nd Preference to be TA for:</label>
-          <br>
-        <select name="preference2">
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="preference1">1st Preference to be TA for:</label>
+            <br>
+          <select name="pref_one" required>
+            @for(position <- positions) {
+              <option value="@position.position_id">@position.courseTitle</option>
+            }
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="preference2">2nd Preference to be TA for:</label>
+            <br>
+          <select name="pref_two">
+            @for(position <- positions) {
+              <option value="@position.position_id">@position.courseTitle</option>
+            }
+            </select>
+          </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="preference3">3rd Preference to be TA for:</label>
+            <br>
+          <select name="pref_three">
+            @for(position <- positions) {
+              <option value="@position.position_id">@position.courseTitle</option>
+            }
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="coursesNotPreferred">Courses Not Preferred:</label>
+          <select multiple id="coursesNotPreferred" name="coursesNotPreferred">
           @for(position <- positions) {
             <option value="@position.position_id">@position.courseTitle</option>
           }
@@ -87,37 +109,15 @@
         </div>
     </div>
     <div class="row">
-      <div class="input-field col s12">
-        <label for="preference3">3rd Preference to be TA for:</label>
-          <br>
-        <select name="preference3">
-          @for(position <- positions) {
-            <option value="@position.position_id">@position.courseTitle</option>
-          }
-        </select>
-      </div>
+        <label for="resume">Resume (PDF):</label>
+        <input type="file" id="resume" name="resume">
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <label for="coursesNotPreferred">Courses Not Preferred:</label>
-        <select multiple id="coursesNotPreferred" name="coursesNotPreferred">
-        @for(position <- positions) {
-          <option value="@position.position_id">@position.courseTitle</option>
-        }
-        </select>
+        <button id="submit-app-button" type="submit" name="action">Submit</button>
       </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s6">
-      <label for="resume">Resume (PDF):</label>
-      <input type="file" id="resume" name="resume">
     </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s12">
-      <button id="submit-app-button" type="submit" name="action">Submit</button>
     </div>
-  </div>
     <script>$(document).ready(function(){
       $('select').formSelect();
     });</script>

@@ -2,7 +2,7 @@ package models;
 
 public class ApplicationFormData {
 
-    public String coursesTaken;
+    public String[] coursesTaken;
     public Long pref_one;
     public Long pref_two;
     public Long pref_three;
@@ -23,5 +23,11 @@ public class ApplicationFormData {
     }
     public void setPref_three(Long pref_three) {
         this.pref_three = pref_three;
+    }
+    public String[] getCoursesTaken() {
+        return coursesTaken;
+    }
+    public void setCoursesTaken(String[] coursesTaken) {
+        this.coursesTaken = coursesTaken;
     }
 }

@@ -1,7 +1,7 @@
 [debug] Copy resource mappings: 
-[debug] 	(/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/ebean-backend/conf/logback.xml,/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/ebean-backend/target/scala-2.11/classes/logback.xml)
-[debug] 	(/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/ebean-backend/conf/application.conf,/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/ebean-backend/target/scala-2.11/classes/application.conf)
-[debug] 	(/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/ebean-backend/conf/evolutions,/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/ebean-backend/target/scala-2.11/classes/evolutions)
-[debug] 	(/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/ebean-backend/conf/routes,/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/ebean-backend/target/scala-2.11/classes/routes)
-[debug] 	(/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/ebean-backend/conf/evolutions/default,/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/ebean-backend/target/scala-2.11/classes/evolutions/default)
-[debug] 	(/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/ebean-backend/conf/evolutions/default/1.sql,/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/ebean-backend/target/scala-2.11/classes/evolutions/default/1.sql)
+[debug] 	(C:\Users\diego\Desktop\SMU\cs4345\Remake-Scott-Lab - Copy\ebean-backend\conf\application.conf,C:\Users\diego\Desktop\SMU\cs4345\Remake-Scott-Lab - Copy\ebean-backend\target\scala-2.11\classes\application.conf)
+[debug] 	(C:\Users\diego\Desktop\SMU\cs4345\Remake-Scott-Lab - Copy\ebean-backend\conf\evolutions,C:\Users\diego\Desktop\SMU\cs4345\Remake-Scott-Lab - Copy\ebean-backend\target\scala-2.11\classes\evolutions)
+[debug] 	(C:\Users\diego\Desktop\SMU\cs4345\Remake-Scott-Lab - Copy\ebean-backend\conf\logback.xml,C:\Users\diego\Desktop\SMU\cs4345\Remake-Scott-Lab - Copy\ebean-backend\target\scala-2.11\classes\logback.xml)
+[debug] 	(C:\Users\diego\Desktop\SMU\cs4345\Remake-Scott-Lab - Copy\ebean-backend\conf\routes,C:\Users\diego\Desktop\SMU\cs4345\Remake-Scott-Lab - Copy\ebean-backend\target\scala-2.11\classes\routes)
+[debug] 	(C:\Users\diego\Desktop\SMU\cs4345\Remake-Scott-Lab - Copy\ebean-backend\conf\evolutions\default,C:\Users\diego\Desktop\SMU\cs4345\Remake-Scott-Lab - Copy\ebean-backend\target\scala-2.11\classes\evolutions\default)
+[debug] 	(C:\Users\diego\Desktop\SMU\cs4345\Remake-Scott-Lab - Copy\ebean-backend\conf\evolutions\default\1.sql,C:\Users\diego\Desktop\SMU\cs4345\Remake-Scott-Lab - Copy\ebean-backend\target\scala-2.11\classes\evolutions\default\1.sql)

@@ -192,4 +192,18 @@ public class HomeController extends Controller {
                     }
                 }, ec.current());
     }
+    public  CompletionStage<Result> getPositions() {
+        WSClient ws = play.test.WSTestClient.newClient(9005);
+        WSRequest request = ws.url("http://localhost:9005/positions");
+
+        return request.get()
+                .thenApplyAsync(response -> {
+                    if (response.getStatus() == 200) {
+                        String json = response.getBody();
+                        return ok(json);
+                    } else {
+                        return ok("Failed to load application form");
+                    }
+                }, ec.current());
+    }
 }

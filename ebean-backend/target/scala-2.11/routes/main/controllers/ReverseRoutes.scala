@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/ebean-backend/conf/routes
-// @DATE:Fri Mar 10 15:01:48 CST 2023
+// @SOURCE:C:/Users/diego/Desktop/SMU/cs4345/Remake-Scott-Lab - Copy/ebean-backend/conf/routes
+// @DATE:Fri Mar 10 20:12:20 CST 2023
 
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
 import play.core.routing.{ HandlerDef, ReverseRouteContext, queryString, dynamicString }
@@ -21,9 +21,9 @@ package controllers {
 
   
     // @LINE:21
-    def submitApplication(): Call = {
+    def submitApplication(username:String): Call = {
       import ReverseRouteContext.empty
-      Call("POST", _prefix + { _defaultPrefix } + "submitApplication")
+      Call("POST", _prefix + { _defaultPrefix } + "submitApplication/" + implicitly[PathBindable[String]].unbind("username", dynamicString(username)))
     }
   
     // @LINE:22
@@ -40,6 +40,12 @@ package controllers {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
+  
+    // @LINE:24
+    def getPositions(): Call = {
+      import ReverseRouteContext.empty
+      Call("GET", _prefix + { _defaultPrefix } + "positions")
+    }
   
     // @LINE:6
     def index(): Call = {

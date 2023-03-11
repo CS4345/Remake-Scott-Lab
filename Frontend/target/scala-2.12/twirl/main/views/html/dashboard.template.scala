@@ -30,7 +30,8 @@ object dashboard extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.
       {
 
 
-Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
+Seq[Any](format.raw/*1.102*/("""
+"""),format.raw/*2.1*/("""<!DOCTYPE html>
 <html>
 
 <head>
@@ -432,17 +433,15 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
                             <label for="startingSemester">Starting Semester of Current Program (Semester, Year)</label>
                         </div>
                         <div class="input-field col s6">
-                            <input id="expectedSemester" name="expectedSemester" type="text" class="validate">
-                            <label for="expectedSemester">Expected Semester to Graduate (Semester, Year)</label>
+                            <input id="expectedGraduation" name="expectedGraduation" type="text" class="validate">
+                            <label for="expectedGraduation">Expected Semester to Graduate (Semester, Year)</label>
                         </div>
                         <div class="input-field col s12">
-                            <select id="coursesTakenBefore" name="coursesTakenBefore[]" multiple>
-                                <option value="" disabled selected>Select Courses Taken Before</option>
-                                <option value="Course1">Course1</option>
-                                <option value="Course2">Course2</option>
-                                <option value="Course3">Course3</option>
-                                <option value="Course4">Course4</option>
-                                <option value="Course5">Course5</option>
+                            <select id="coursesTaken" name="coursesTakenBefore[]" multiple>
+                                <option value="" disabled>Select Courses Taken Before</option>
+                                <option value="1">CS 4345</option>
+                                <option value="2">CS 9999</option>
+                                <option value="3">CS 4444</option>
                             </select>
                             <label for="coursesTakenBefore">Courses Taken Before</label>
                         </div>
@@ -468,7 +467,7 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
     </div>
 
     <script src="assets/javascripts/fetchJobs.js"></script>
-    <script id="profile" src="assets/javascripts/fetchProfileState.js" status="""),_display_(/*440.80*/status),format.raw/*440.86*/(""" """),format.raw/*440.87*/("""first="""),_display_(/*440.94*/firstname),format.raw/*440.103*/(""" """),format.raw/*440.104*/("""last="""),_display_(/*440.110*/lastname),format.raw/*440.118*/(""" """),format.raw/*440.119*/("""aStatus="""),_display_(/*440.128*/aStatus),format.raw/*440.135*/(""" """),format.raw/*440.136*/("""email="""),_display_(/*440.143*/email),format.raw/*440.148*/(""" """),format.raw/*440.149*/("""phone="""),_display_(/*440.156*/phone),format.raw/*440.161*/(""" """),format.raw/*440.162*/("""> </script>
+    <script id="profile" src="assets/javascripts/fetchProfileState.js" status="""),_display_(/*438.80*/status),format.raw/*438.86*/(""" """),format.raw/*438.87*/("""first="""),_display_(/*438.94*/firstname),format.raw/*438.103*/(""" """),format.raw/*438.104*/("""last="""),_display_(/*438.110*/lastname),format.raw/*438.118*/(""" """),format.raw/*438.119*/("""aStatus="""),_display_(/*438.128*/aStatus),format.raw/*438.135*/(""" """),format.raw/*438.136*/("""email="""),_display_(/*438.143*/email),format.raw/*438.148*/(""" """),format.raw/*438.149*/("""phone="""),_display_(/*438.156*/phone),format.raw/*438.161*/(""" """),format.raw/*438.162*/("""> </script>
     <script>
         // Get the "Complete Profile" button and the paper modal overlay
         const applyButton = document.getElementById("apply-general-button")
@@ -480,24 +479,24 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
         paperModalOverlay.style.display = "none";
 
         // Add a click event listener to the "Complete Profile" button
-        completeProfileButton.addEventListener("click", () => """),format.raw/*452.63*/("""{"""),format.raw/*452.64*/("""
-            """),format.raw/*453.13*/("""// Show the paper modal overlay
+        completeProfileButton.addEventListener("click", () => """),format.raw/*450.63*/("""{"""),format.raw/*450.64*/("""
+            """),format.raw/*451.13*/("""// Show the paper modal overlay
             paperModalOverlay.style.display = "flex";
-            setTimeout(() => """),format.raw/*455.30*/("""{"""),format.raw/*455.31*/("""
-                """),format.raw/*456.17*/("""paperModalOverlay.classList.add("show");
-            """),format.raw/*457.13*/("""}"""),format.raw/*457.14*/(""", 0);
-        """),format.raw/*458.9*/("""}"""),format.raw/*458.10*/(""");
+            setTimeout(() => """),format.raw/*453.30*/("""{"""),format.raw/*453.31*/("""
+                """),format.raw/*454.17*/("""paperModalOverlay.classList.add("show");
+            """),format.raw/*455.13*/("""}"""),format.raw/*455.14*/(""", 0);
+        """),format.raw/*456.9*/("""}"""),format.raw/*456.10*/(""");
 
         // Add a click even listener when user click "Apply" button
         applicationFormSection = document.getElementById("applicationFormSection");
-        applyButton.addEventListener("click", () => """),format.raw/*462.53*/("""{"""),format.raw/*462.54*/("""paperModalOverlay.style.display = "flex";
-            setTimeout(() => """),format.raw/*463.30*/("""{"""),format.raw/*463.31*/("""
-                """),format.raw/*464.17*/("""paperModalOverlayApply.classList.add("show");
-            """),format.raw/*465.13*/("""}"""),format.raw/*465.14*/(""", 0);
+        applyButton.addEventListener("click", () => """),format.raw/*460.53*/("""{"""),format.raw/*460.54*/("""paperModalOverlay.style.display = "flex";
+            setTimeout(() => """),format.raw/*461.30*/("""{"""),format.raw/*461.31*/("""
+                """),format.raw/*462.17*/("""paperModalOverlayApply.classList.add("show");
+            """),format.raw/*463.13*/("""}"""),format.raw/*463.14*/(""", 0);
             fetch('/applicationForm')
                     .then(response => response.text())
-                    .then(html => """),format.raw/*468.35*/("""{"""),format.raw/*468.36*/("""
-                        """),format.raw/*469.25*/("""frame = document.getElementById("my-frame");
+                    .then(html => """),format.raw/*466.35*/("""{"""),format.raw/*466.36*/("""
+                        """),format.raw/*467.25*/("""frame = document.getElementById("my-frame");
                         frame.srcdoc = html;
 
                         // Create a new DOM parser
@@ -520,33 +519,83 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 
                         // Update the iframe's srcdoc content with the modified document
                         frame.srcdoc = iframeDoc.documentElement.outerHTML;
-                    """),format.raw/*492.21*/("""}"""),format.raw/*492.22*/(""")
-                    .catch(error => """),format.raw/*493.37*/("""{"""),format.raw/*493.38*/("""
-                        """),format.raw/*494.25*/("""console.log(error);
+                    """),format.raw/*490.21*/("""}"""),format.raw/*490.22*/(""")
+                    .catch(error => """),format.raw/*491.37*/("""{"""),format.raw/*491.38*/("""
+                        """),format.raw/*492.25*/("""console.log(error);
                         // Handle the error
-                    """),format.raw/*496.21*/("""}"""),format.raw/*496.22*/(""");
-        """),format.raw/*497.9*/("""}"""),format.raw/*497.10*/(""");
+                    """),format.raw/*494.21*/("""}"""),format.raw/*494.22*/(""");
+        """),format.raw/*495.9*/("""}"""),format.raw/*495.10*/(""");
 
         // Add a click event listener to the paper modal overlay
-        paperModalOverlay.addEventListener("click", (event) => """),format.raw/*500.64*/("""{"""),format.raw/*500.65*/("""
-            """),format.raw/*501.13*/("""// If the user clicked outside the paper modal, hide the overlay
-            if (event.target === paperModalOverlay) """),format.raw/*502.53*/("""{"""),format.raw/*502.54*/("""
-                """),format.raw/*503.17*/("""paperModalOverlay.classList.remove("show");
-                setTimeout(() => """),format.raw/*504.34*/("""{"""),format.raw/*504.35*/("""
-                    """),format.raw/*505.21*/("""paperModalOverlay.style.display = "none";
-                """),format.raw/*506.17*/("""}"""),format.raw/*506.18*/(""", 500);
-            """),format.raw/*507.13*/("""}"""),format.raw/*507.14*/("""
-        """),format.raw/*508.9*/("""}"""),format.raw/*508.10*/(""");
+        paperModalOverlay.addEventListener("click", (event) => """),format.raw/*498.64*/("""{"""),format.raw/*498.65*/("""
+            """),format.raw/*499.13*/("""// If the user clicked outside the paper modal, hide the overlay
+            if (event.target === paperModalOverlay) """),format.raw/*500.53*/("""{"""),format.raw/*500.54*/("""
+                """),format.raw/*501.17*/("""paperModalOverlay.classList.remove("show");
+                setTimeout(() => """),format.raw/*502.34*/("""{"""),format.raw/*502.35*/("""
+                    """),format.raw/*503.21*/("""paperModalOverlay.style.display = "none";
+                """),format.raw/*504.17*/("""}"""),format.raw/*504.18*/(""", 500);
+            """),format.raw/*505.13*/("""}"""),format.raw/*505.14*/("""
+        """),format.raw/*506.9*/("""}"""),format.raw/*506.10*/(""");
         // Add a click event listener to the paper modal overlay
-        paperModalOverlayApply.addEventListener("click", (event) => """),format.raw/*510.69*/("""{"""),format.raw/*510.70*/("""
-            """),format.raw/*511.13*/("""// If the user clicked outside the paper modal, hide the overlay
-            if (event.target === paperModalOverlayApply) """),format.raw/*512.58*/("""{"""),format.raw/*512.59*/("""
-                """),format.raw/*513.17*/("""paperModalOverlayApply.classList.remove("show");
-                setTimeout(() => """),format.raw/*514.34*/("""{"""),format.raw/*514.35*/("""
-                    """),format.raw/*515.21*/("""paperModalOverlayApply.style.display = "none";
-                """),format.raw/*516.17*/("""}"""),format.raw/*516.18*/(""", 500);
-            """),format.raw/*517.13*/("""}"""),format.raw/*517.14*/("""
-        """),format.raw/*518.9*/("""}"""),format.raw/*518.10*/(""");
+        paperModalOverlayApply.addEventListener("click", (event) => """),format.raw/*508.69*/("""{"""),format.raw/*508.70*/("""
+            """),format.raw/*509.13*/("""// If the user clicked outside the paper modal, hide the overlay
+            if (event.target === paperModalOverlayApply) """),format.raw/*510.58*/("""{"""),format.raw/*510.59*/("""
+                """),format.raw/*511.17*/("""paperModalOverlayApply.classList.remove("show");
+                setTimeout(() => """),format.raw/*512.34*/("""{"""),format.raw/*512.35*/("""
+                    """),format.raw/*513.21*/("""paperModalOverlayApply.style.display = "none";
+                """),format.raw/*514.17*/("""}"""),format.raw/*514.18*/(""", 500);
+            """),format.raw/*515.13*/("""}"""),format.raw/*515.14*/("""
+        """),format.raw/*516.9*/("""}"""),format.raw/*516.10*/(""");
+    </script>
+    <script>
+            var jobData;
+            fetch('/positions')
+                    .then(response => response.json())
+                    .then(data => """),format.raw/*522.35*/("""{"""),format.raw/*522.36*/("""
+                        """),format.raw/*523.25*/("""console.log(data);
+                        jobData = data;
+                        if (typeof jobData === "string") """),format.raw/*525.58*/("""{"""),format.raw/*525.59*/(""" """),format.raw/*525.60*/("""// Check if jobData is a string
+                            jobData = JSON.parse(jobData); // Convert the string to an array
+                        """),format.raw/*527.25*/("""}"""),format.raw/*527.26*/("""
+                        """),format.raw/*528.25*/("""// Do something with the responseData variable
+                        console.log(jobData);
+                        const positionList = document.getElementById('position-list');
+                        const jobCards = jobData.map(job => `
+                                <div id="position-card" class="position-card">
+                                    <img src="https://styles.redditmedia.com/t5_2rpt9/styles/communityIcon_iyl98xuwsp251.png" alt="Southern Methodist University: Home of the Mustangs" data-noaft="1" style="width: 128px; height: 128px; margin: 0px;">
+                                        <div id="job-description" class="job-description" style="
+                                            display: flex;
+                                            flex-direction: column;
+                                            /* background-color: yellow; */
+                                        ">
+                                            <h5 style="
+                                                font-weight: bold;
+                                            ">$"""),format.raw/*541.48*/("""{"""),format.raw/*541.49*/("""job.courseTitle"""),format.raw/*541.64*/("""}"""),format.raw/*541.65*/("""</h5>
+                                            <h7 style="
+                                                color: #888;
+                                                font-weight: normal;
+                                            ">$$"""),format.raw/*545.49*/("""{"""),format.raw/*545.50*/("""job.pay"""),format.raw/*545.57*/("""}"""),format.raw/*545.58*/(""", $"""),format.raw/*545.61*/("""{"""),format.raw/*545.62*/("""job.hours"""),format.raw/*545.71*/("""}"""),format.raw/*545.72*/(""" """),format.raw/*545.73*/("""hours</h7>
+                                            <h7 style="
+                                                color: #888;
+                                                font-weight: normal;
+                                            ">Faculty: $"""),format.raw/*549.57*/("""{"""),format.raw/*549.58*/("""job.faculty"""),format.raw/*549.69*/("""}"""),format.raw/*549.70*/("""</h7>
+                                        </div>
+                                    <div id="job-description" class="job-description" style="
+                                        display: flex;
+                                        flex: 1;
+                                        flex-direction: row;
+                                        /* background-color: yellow; */
+                                        justify-content: flex-end;
+                                        padding-right: 10px;
+                                    ">
+                                        <h5>View details</h5>
+                                    </div>
+                                </div>
+                            <br/>
+                        `).join('');
+                        positionList.innerHTML = jobCards;
+                    """),format.raw/*565.21*/("""}"""),format.raw/*565.22*/(""")
+                    .catch(error => console.error(error));
     </script>
 
 </body>
@@ -567,11 +616,11 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: 2023-03-10T15:43:50.087
-                  SOURCE: /Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/Frontend/app/views/dashboard.scala.html
-                  HASH: 8cbc6f966eb3e4540d9384d3c676a62c2933d024
-                  MATRIX: 987->1|1181->102|1864->757|1893->758|1934->771|1995->805|2024->806|2090->844|2119->845|2160->858|2215->886|2244->887|2281->897|2322->910|2351->911|2392->924|2769->1274|2798->1275|2835->1285|2884->1306|2913->1307|2954->1320|3589->1928|3618->1929|3655->1939|3709->1965|3738->1966|3779->1979|3989->2162|4018->2163|4055->2173|4090->2180|4119->2181|4160->2194|4305->2312|4334->2313|4371->2323|4412->2336|4441->2337|4482->2350|4544->2385|4573->2386|4610->2396|4646->2404|4675->2405|4716->2418|4960->2635|4989->2636|5026->2646|5070->2662|5099->2663|5140->2676|5397->2906|5426->2907|5463->2917|5506->2932|5535->2933|5576->2946|5657->3000|5686->3001|5724->3011|5769->3027|5799->3028|5841->3041|6090->3262|6120->3263|6158->3273|6203->3289|6233->3290|6275->3303|6545->3545|6575->3546|6613->3556|6656->3570|6686->3571|6728->3584|6909->3737|6939->3738|6977->3748|7021->3763|7051->3764|7093->3777|7206->3862|7236->3863|7274->3873|7315->3885|7345->3886|7387->3899|7636->4120|7666->4121|7704->4131|7758->4156|7788->4157|7830->4170|8161->4473|8191->4474|8229->4484|8280->4506|8310->4507|8352->4520|8627->4767|8657->4768|8695->4778|8755->4809|8785->4810|8827->4823|8947->4915|8977->4916|9015->4926|9059->4941|9089->4942|9131->4955|9483->5279|9513->5280|9546->5285|11633->7344|11649->7350|11702->7381|18716->14366|18746->14367|18804->14396|18871->14434|18901->14435|18963->14468|19024->14500|19054->14501|19120->14538|19213->14602|19243->14603|19273->14604|19307->14609|19337->14610|19403->14647|19496->14711|19526->14712|19584->14741|19614->14742|19670->14769|19700->14770|22942->17984|22970->17990|23000->17991|23035->17998|23067->18007|23098->18008|23133->18014|23164->18022|23195->18023|23233->18032|23263->18039|23294->18040|23330->18047|23358->18052|23389->18053|23425->18060|23453->18065|23484->18066|24182->18735|24212->18736|24254->18749|24398->18864|24428->18865|24474->18882|24556->18935|24586->18936|24628->18950|24658->18951|24895->19159|24925->19160|25025->19231|25055->19232|25101->19249|25188->19307|25218->19308|25380->19441|25410->19442|25464->19467|26655->20629|26685->20630|26752->20668|26782->20669|26836->20694|26949->20778|26979->20779|27018->20790|27048->20791|27209->20923|27239->20924|27281->20937|27427->21054|27457->21055|27503->21072|27609->21149|27639->21150|27689->21171|27776->21229|27806->21230|27855->21250|27885->21251|27922->21260|27952->21261|28117->21397|28147->21398|28189->21411|28340->21533|28370->21534|28416->21551|28527->21633|28557->21634|28607->21655|28699->21718|28729->21719|28778->21739|28808->21740|28845->21749|28875->21750
-                  LINES: 28->1|33->2|46->15|46->15|47->16|48->17|48->17|51->20|51->20|52->21|53->22|53->22|55->24|55->24|55->24|56->25|66->35|66->35|68->37|68->37|68->37|69->38|86->55|86->55|88->57|88->57|88->57|89->58|94->63|94->63|96->65|96->65|96->65|97->66|101->70|101->70|103->72|103->72|103->72|104->73|105->74|105->74|107->76|107->76|107->76|108->77|115->84|115->84|117->86|117->86|117->86|118->87|125->94|125->94|127->96|127->96|127->96|128->97|130->99|130->99|132->101|132->101|132->101|133->102|140->109|140->109|142->111|142->111|142->111|143->112|150->119|150->119|152->121|152->121|152->121|153->122|158->127|158->127|160->129|160->129|160->129|161->130|164->133|164->133|166->135|166->135|166->135|167->136|174->143|174->143|176->145|176->145|176->145|177->146|187->156|187->156|189->158|189->158|189->158|190->159|198->167|198->167|200->169|200->169|200->169|201->170|203->172|203->172|205->174|205->174|205->174|206->175|216->185|216->185|217->186|274->243|274->243|274->243|405->374|405->374|406->375|406->375|406->375|407->376|407->376|407->376|408->377|409->378|409->378|409->378|409->378|409->378|410->379|411->380|411->380|412->381|412->381|413->382|413->382|471->440|471->440|471->440|471->440|471->440|471->440|471->440|471->440|471->440|471->440|471->440|471->440|471->440|471->440|471->440|471->440|471->440|471->440|483->452|483->452|484->453|486->455|486->455|487->456|488->457|488->457|489->458|489->458|493->462|493->462|494->463|494->463|495->464|496->465|496->465|499->468|499->468|500->469|523->492|523->492|524->493|524->493|525->494|527->496|527->496|528->497|528->497|531->500|531->500|532->501|533->502|533->502|534->503|535->504|535->504|536->505|537->506|537->506|538->507|538->507|539->508|539->508|541->510|541->510|542->511|543->512|543->512|544->513|545->514|545->514|546->515|547->516|547->516|548->517|548->517|549->518|549->518
+                  DATE: 2023-03-10T22:53:48.186
+                  SOURCE: C:/Users/diego/Desktop/SMU/cs4345/Remake-Scott-Lab - Copy/Frontend/app/views/dashboard.scala.html
+                  HASH: d0a75a61ff3f1799adef97901b703a56e3d85855
+                  MATRIX: 987->1|1183->101|1211->103|1907->771|1936->772|1978->786|2040->821|2069->822|2138->863|2167->864|2209->878|2265->907|2294->908|2333->920|2374->933|2403->934|2445->948|2832->1308|2861->1309|2900->1321|2949->1342|2978->1343|3020->1357|3672->1982|3701->1983|3740->1995|3794->2021|3823->2022|3865->2036|4080->2224|4109->2225|4148->2237|4183->2244|4212->2245|4254->2259|4403->2381|4432->2382|4471->2394|4512->2407|4541->2408|4583->2422|4646->2458|4675->2459|4714->2471|4750->2479|4779->2480|4821->2494|5072->2718|5101->2719|5140->2731|5184->2747|5213->2748|5255->2762|5519->2999|5548->3000|5587->3012|5630->3027|5659->3028|5701->3042|5784->3098|5813->3099|5853->3111|5898->3127|5928->3128|5971->3142|6227->3370|6257->3371|6297->3383|6342->3399|6372->3400|6415->3414|6692->3663|6722->3664|6762->3676|6805->3690|6835->3691|6878->3705|7064->3863|7094->3864|7134->3876|7178->3891|7208->3892|7251->3906|7367->3994|7397->3995|7437->4007|7478->4019|7508->4020|7551->4034|7807->4262|7837->4263|7877->4275|7931->4300|7961->4301|8004->4315|8345->4628|8375->4629|8415->4641|8466->4663|8496->4664|8539->4678|8822->4933|8852->4934|8892->4946|8952->4977|8982->4978|9025->4992|9147->5086|9177->5087|9217->5099|9261->5114|9291->5115|9334->5129|9696->5463|9726->5464|9760->5470|11904->7586|11920->7592|11973->7623|19118->14739|19148->14740|19207->14770|19274->14808|19304->14809|19367->14843|19428->14875|19458->14876|19525->14914|19619->14979|19649->14980|19679->14981|19713->14986|19743->14987|19810->15025|19904->15090|19934->15091|19993->15121|20023->15122|20080->15150|20110->15151|23235->18248|23263->18254|23293->18255|23328->18262|23360->18271|23391->18272|23426->18278|23457->18286|23488->18287|23526->18296|23556->18303|23587->18304|23623->18311|23651->18316|23682->18317|23718->18324|23746->18329|23777->18330|24487->19011|24517->19012|24560->19026|24706->19143|24736->19144|24783->19162|24866->19216|24896->19217|24939->19232|24969->19233|25210->19445|25240->19446|25341->19518|25371->19519|25418->19537|25506->19596|25536->19597|25701->19733|25731->19734|25786->19760|27000->20945|27030->20946|27098->20985|27128->20986|27183->21012|27298->21098|27328->21099|27368->21111|27398->21112|27562->21247|27592->21248|27635->21262|27782->21380|27812->21381|27859->21399|27966->21477|27996->21478|28047->21500|28135->21559|28165->21560|28215->21581|28245->21582|28283->21592|28313->21593|28480->21731|28510->21732|28553->21746|28705->21869|28735->21870|28782->21888|28894->21971|28924->21972|28975->21994|29068->22058|29098->22059|29148->22080|29178->22081|29216->22091|29246->22092|29457->22274|29487->22275|29542->22301|29689->22419|29719->22420|29749->22421|29929->22572|29959->22573|30014->22599|31141->23697|31171->23698|31215->23713|31245->23714|31518->23958|31548->23959|31584->23966|31614->23967|31646->23970|31676->23971|31714->23980|31744->23981|31774->23982|32060->24239|32090->24240|32130->24251|32160->24252|33050->25113|33080->25114
+                  LINES: 28->1|33->1|34->2|47->15|47->15|48->16|49->17|49->17|52->20|52->20|53->21|54->22|54->22|56->24|56->24|56->24|57->25|67->35|67->35|69->37|69->37|69->37|70->38|87->55|87->55|89->57|89->57|89->57|90->58|95->63|95->63|97->65|97->65|97->65|98->66|102->70|102->70|104->72|104->72|104->72|105->73|106->74|106->74|108->76|108->76|108->76|109->77|116->84|116->84|118->86|118->86|118->86|119->87|126->94|126->94|128->96|128->96|128->96|129->97|131->99|131->99|133->101|133->101|133->101|134->102|141->109|141->109|143->111|143->111|143->111|144->112|151->119|151->119|153->121|153->121|153->121|154->122|159->127|159->127|161->129|161->129|161->129|162->130|165->133|165->133|167->135|167->135|167->135|168->136|175->143|175->143|177->145|177->145|177->145|178->146|188->156|188->156|190->158|190->158|190->158|191->159|199->167|199->167|201->169|201->169|201->169|202->170|204->172|204->172|206->174|206->174|206->174|207->175|217->185|217->185|218->186|275->243|275->243|275->243|406->374|406->374|407->375|407->375|407->375|408->376|408->376|408->376|409->377|410->378|410->378|410->378|410->378|410->378|411->379|412->380|412->380|413->381|413->381|414->382|414->382|470->438|470->438|470->438|470->438|470->438|470->438|470->438|470->438|470->438|470->438|470->438|470->438|470->438|470->438|470->438|470->438|470->438|470->438|482->450|482->450|483->451|485->453|485->453|486->454|487->455|487->455|488->456|488->456|492->460|492->460|493->461|493->461|494->462|495->463|495->463|498->466|498->466|499->467|522->490|522->490|523->491|523->491|524->492|526->494|526->494|527->495|527->495|530->498|530->498|531->499|532->500|532->500|533->501|534->502|534->502|535->503|536->504|536->504|537->505|537->505|538->506|538->506|540->508|540->508|541->509|542->510|542->510|543->511|544->512|544->512|545->513|546->514|546->514|547->515|547->515|548->516|548->516|554->522|554->522|555->523|557->525|557->525|557->525|559->527|559->527|560->528|573->541|573->541|573->541|573->541|577->545|577->545|577->545|577->545|577->545|577->545|577->545|577->545|577->545|581->549|581->549|581->549|581->549|597->565|597->565
                   -- GENERATED --
               */
           

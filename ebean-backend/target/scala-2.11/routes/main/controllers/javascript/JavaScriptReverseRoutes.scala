@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/ebean-backend/conf/routes
-// @DATE:Fri Mar 10 15:01:48 CST 2023
+// @SOURCE:C:/Users/diego/Desktop/SMU/cs4345/Remake-Scott-Lab - Copy/ebean-backend/conf/routes
+// @DATE:Fri Mar 10 20:12:20 CST 2023
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -27,8 +27,8 @@ package controllers.javascript {
     def submitApplication: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ApplicationController.submitApplication",
       """
-        function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "submitApplication"})
+        function(username0) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "submitApplication/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("username", encodeURIComponent(username0))})
         }
       """
     )
@@ -52,6 +52,16 @@ package controllers.javascript {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
+  
+    // @LINE:24
+    def getPositions: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.getPositions",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "positions"})
+        }
+      """
+    )
   
     // @LINE:6
     def index: JavaScriptReverseRoute = JavaScriptReverseRoute(

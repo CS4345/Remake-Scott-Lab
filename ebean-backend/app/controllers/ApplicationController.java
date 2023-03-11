@@ -100,18 +100,33 @@ public class ApplicationController extends Controller {
         Seq<Position> seq = JavaConverters.asScalaBufferConverter(positions).asScala().toSeq();
         return ok(views.html.applicationForm.render(user, seq, applicationForm));
     }
-    public Result submitApplication() throws SQLException {
+    public Result submitApplication(String username) throws SQLException {
         Form<ApplicationFormData> applicationForm = Form.form(ApplicationFormData.class).bindFromRequest();
         System.out.println("Submitting application");
         if(applicationForm.hasErrors()) {
             return badRequest(views.html.applicationForm.render(null, null, null));
         } else {
+            System.out.println("Application Information:");
+            System.out.println("Pref 1: " + applicationForm.get().getPref_one());
+            System.out.println("Pref 2: " + applicationForm.get().getPref_two());
+            System.out.println("Pref 3: " + applicationForm.get().getPref_three());
+            System.out.println("Courses taken: " + applicationForm.get().getCoursesTaken());
             Application app = new Application();
-            app.user = session().get("username") == null ? null : User.findByUsername(session().get("username"));
+            app.user = User.findByUsername(username);
             app.setPref_one(applicationForm.get().getPref_one());
             app.setPref_two(applicationForm.get().getPref_two());
             app.setPref_three(applicationForm.get().getPref_three());
-            app.user.setCoursesTaken(applicationForm.get().coursesTaken);
+            String[] coursesTakenArr = applicationForm.get().getCoursesTaken();
+            String coursesTakenStr = "";
+            if (coursesTakenArr != null) {
+                for (int i = 0; i < coursesTakenArr.length; i++) {
+                    coursesTakenStr += coursesTakenArr[i];
+                    if (i != coursesTakenArr.length - 1) {
+                        coursesTakenStr += ",";
+                    }
+                }
+            }
+            app.user.setCoursesTaken(coursesTakenStr);
             app.save();
             app.user.update();
 

@@ -1,0 +1,71 @@
+@(user: User, positions: Seq[Position], applicationForm: Form[Application])
+
+<h1>TA Application Form</h1>
+
+@helper.form(action = ApplicationController.submitApplication()) {
+
+  <label for="firstName">First Name:</label>
+  @user.firstname
+  <input type="hidden" id="firstName" name="firstName" value="@user.firstname">
+
+  <label for="lastName">Last Name:</label>
+  @user.lastname
+  <input type="hidden" id="lastName" name="lastName" value="@user.lastname">
+
+  <label for="email">Email:</label>
+  @user.email
+  <input type="hidden" id="email" name="email" value="@user.email">
+
+  <label for="phoneNumber">Phone Number:</label>
+  @user.phone
+  <input type="hidden" id="phoneNumber" name="phoneNumber" value="@user.phone">
+
+  <label for="degreePlan">Current Degree Plan:</label>
+  @user.degreePlan
+  <input type="hidden" id="degreePlan" name="degreePlan" value="@user.degreePlan">
+
+  <label for="startingSemester">Starting Semester:</label>
+  @user.startingSemester
+  <input type="hidden" id="startingSemester" name="startingSemester" value="@user.startingSemester">
+  <label for="expectedGraduation">Expected Graduation Semester:</label>
+  @user.expectedGraduation
+  <input type="hidden" id="expectedGraduation" name="expectedGraduation" value="@user.expectedGraduation">
+  <label for="coursesTaken">Courses Taken:</label>
+  <select multiple id="coursesTaken" name="coursesTaken">
+  @for(position <- positions) {
+    <option value="@position.position_id">@position.courseTitle</option>
+  }
+  </select>
+
+  <label for="preference1">1st Preference to be TA for:</label>
+  <select name="position1">
+  @for(position <- positions) {
+    <option value="@position.position_id">@position.courseTitle</option>
+  }
+  </select>
+  <label for="preference2">2nd Preference to be TA for:</label>
+  <select name="position2">
+  @for(position <- positions) {
+    <option value="@position.position_id">@position.courseTitle</option>
+  }
+  </select>
+  <label for="preference3">3rd Preference to be TA for:</label>
+  <select name="position3">
+  @for(position <- positions) {
+    <option value="@position.position_id">@position.courseTitle</option>
+  }
+  </select>
+
+  <label for="coursesNotPreferred">Courses Not Preferred:</label>
+  <select multiple id="coursesNotPreferred" name="coursesNotPreferred">
+  @for(position <- positions) {
+    <option value="@position.position_id">@position.courseTitle</option>
+  }
+  </select>
+
+  <label for="resume">Resume (PDF):</label>
+  <input type="file" id="resume" name="resume">
+
+  <button type="submit">Submit</button>
+
+}

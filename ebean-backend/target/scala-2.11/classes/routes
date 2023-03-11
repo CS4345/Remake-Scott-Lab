@@ -18,8 +18,8 @@ GET     /users/getAccountStatus      controllers.UserController.checkUpdateStatu
 
 # Sending update to backend and perform update account
 POST    /users/update                controllers.UserController.updateAccount()
-POST    /submitApplication    controllers.ApplicationController.submitApplication()
+POST    /submitApplication/:username    controllers.ApplicationController.submitApplication(username: String)
 GET   /applicationForm/:username  controllers.ApplicationController.showApplicationForm(username: String)
 GET /users/:username controllers.UserController.getUser(username: String)
-
+GET     /positions                 controllers.HomeController.getPositions()
 

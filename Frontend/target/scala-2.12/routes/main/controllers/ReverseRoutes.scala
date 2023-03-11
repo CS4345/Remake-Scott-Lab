@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/ericvudeptrai/Desktop/Sprint1/Repo/Remake-Scott-Lab/Frontend/conf/routes
-// @DATE:Fri Mar 10 13:16:41 CST 2023
+// @SOURCE:C:/Users/diego/Desktop/SMU/cs4345/Remake-Scott-Lab - Copy/Frontend/conf/routes
+// @DATE:Fri Mar 10 20:59:37 CST 2023
 
 import play.api.mvc.Call
 
@@ -36,6 +36,12 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "signup")
     }
   
+    // @LINE:18
+    def getPositions(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "positions")
+    }
+  
     // @LINE:8
     def loginHandler(): Call = {
       
@@ -62,14 +68,14 @@ package controllers {
   
   }
 
-  // @LINE:21
+  // @LINE:22
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:21
+    // @LINE:22
     def at(file:String): Call = {
       implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[String]].unbind("file", file))

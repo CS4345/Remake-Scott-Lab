@@ -28,6 +28,16 @@ public class Position extends Model {
     @Constraints.Required
     public String hours;
 
+    public String toJsonString() {
+        return "{" +
+                "\"position_id\":" + position_id + "," +
+                "\"courseTitle\":\"" + courseTitle + "\"," +
+                "\"faculty\":\"" + faculty + "\"," +
+                "\"pay\":\"" + pay + "\"," +
+                "\"hours\":\"" + hours + "\"" +
+                "}";
+    }
+
     public static Find<Long, Position> find = new Find<Long, Position>(){};
 
     public static Position findByPay(String pay) {
@@ -52,7 +62,7 @@ public class Position extends Model {
         List<Position> positions = new ArrayList<>();
 
         // Establish database connection
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/CS4345", "root", "123456");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/CS4345", "root", "toor");
 
         // Query the position table and fetch all positions
         String sql = "SELECT * FROM position";
@@ -61,8 +71,8 @@ public class Position extends Model {
 
         // Iterate through the result set and create Position objects
         while (rs.next()) {
-            long id = rs.getLong("id");
-            String title = rs.getString("title");
+            long id = rs.getLong("position_id");
+            String title = rs.getString("course_title");
             String faculty = rs.getString("faculty");
             String pay = rs.getString("pay");
             String hours = rs.getString("hours");

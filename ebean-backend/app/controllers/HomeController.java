@@ -1,4 +1,5 @@
 package controllers;
+import models.Position;
 import models.User;
 import play.Logger;
 import play.libs.Json;
@@ -6,6 +7,7 @@ import play.mvc.*;
 import scala.collection.JavaConverters;
 import scala.collection.Seq;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,5 +29,18 @@ public class HomeController extends Controller {
         Seq<String> infoSeq = JavaConverters.asScalaBufferConverter(infos).asScala().toSeq();
         Logger.info("infos"+ infoSeq);
         return ok(views.html.info.render(infoSeq));
+    }
+    public Result getPositions() throws SQLException {
+        List<Position> positions = Position.getAllPositions();
+        String json = "[";
+        for (int i = 0; i < positions.size(); i++) {
+            json += positions.get(i).toJsonString();
+            if (i != positions.size() - 1) {
+                json += ",";
+            }
+        }
+        json += "]";
+        System.out.println("JSON: " + json);
+        return ok(Json.toJson(json));
     }
 }

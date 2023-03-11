@@ -1,0 +1,15 @@
+@(infoMessages: Seq[String])
+<!DOCTYPE html>
+<html>
+    <body>
+        <header class="topbar">
+            <h1 class="focused" style="font-size: 37px;
+            color: #57a957">
+                <strong>User Info</strong>
+            </h1>
+        </header>
+        @for(infoMessage <- infoMessages) {
+            <li>@infoMessage</li>
+        }
+    </body>
+</html>

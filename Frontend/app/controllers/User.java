@@ -130,6 +130,7 @@ public class User extends Controller {
     public String getDegreePlan() {return degreePlan;}
     public void setDegreePlan(String degreePlan) { this.degreePlan = degreePlan; }
 
+
     public CompletionStage<WSResponse> checkAuthorized() {
 
         WSClient ws = play.test.WSTestClient.newClient(9005);
