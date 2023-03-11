@@ -401,17 +401,15 @@
                             <label for="startingSemester">Starting Semester of Current Program (Semester, Year)</label>
                         </div>
                         <div class="input-field col s6">
-                            <input id="expectedSemester" name="expectedSemester" type="text" class="validate">
-                            <label for="expectedSemester">Expected Semester to Graduate (Semester, Year)</label>
+                            <input id="expectedGraduation" name="expectedGraduation" type="text" class="validate">
+                            <label for="expectedGraduation">Expected Semester to Graduate (Semester, Year)</label>
                         </div>
                         <div class="input-field col s12">
-                            <select id="coursesTakenBefore" name="coursesTakenBefore[]" multiple>
-                                <option value="" disabled selected>Select Courses Taken Before</option>
-                                <option value="Course1">Course1</option>
-                                <option value="Course2">Course2</option>
-                                <option value="Course3">Course3</option>
-                                <option value="Course4">Course4</option>
-                                <option value="Course5">Course5</option>
+                            <select id="coursesTaken" name="coursesTakenBefore[]" multiple>
+                                <option value="" disabled>Select Courses Taken Before</option>
+                                <option value="1">CS 4345</option>
+                                <option value="2">CS 9999</option>
+                                <option value="3">CS 4444</option>
                             </select>
                             <label for="coursesTakenBefore">Courses Taken Before</label>
                         </div>
@@ -516,6 +514,56 @@
                 }, 500);
             }
         });
+    </script>
+    <script>
+            var jobData;
+            fetch('/positions')
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                        jobData = data;
+                        if (typeof jobData === "string") { // Check if jobData is a string
+                            jobData = JSON.parse(jobData); // Convert the string to an array
+                        }
+                        // Do something with the responseData variable
+                        console.log(jobData);
+                        const positionList = document.getElementById('position-list');
+                        const jobCards = jobData.map(job => `
+                                <div id="position-card" class="position-card">
+                                    <img src="https://styles.redditmedia.com/t5_2rpt9/styles/communityIcon_iyl98xuwsp251.png" alt="Southern Methodist University: Home of the Mustangs" data-noaft="1" style="width: 128px; height: 128px; margin: 0px;">
+                                        <div id="job-description" class="job-description" style="
+                                            display: flex;
+                                            flex-direction: column;
+                                            /* background-color: yellow; */
+                                        ">
+                                            <h5 style="
+                                                font-weight: bold;
+                                            ">${job.courseTitle}</h5>
+                                            <h7 style="
+                                                color: #888;
+                                                font-weight: normal;
+                                            ">$${job.pay}, ${job.hours} hours</h7>
+                                            <h7 style="
+                                                color: #888;
+                                                font-weight: normal;
+                                            ">Faculty: ${job.faculty}</h7>
+                                        </div>
+                                    <div id="job-description" class="job-description" style="
+                                        display: flex;
+                                        flex: 1;
+                                        flex-direction: row;
+                                        /* background-color: yellow; */
+                                        justify-content: flex-end;
+                                        padding-right: 10px;
+                                    ">
+                                        <h5>View details</h5>
+                                    </div>
+                                </div>
+                            <br/>
+                        `).join('');
+                        positionList.innerHTML = jobCards;
+                    })
+                    .catch(error => console.error(error));
     </script>
 
 </body>
