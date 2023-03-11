@@ -25,7 +25,9 @@ Application:
 INSERT INTO `CS4345`.`application` (`application_id`, `user_id`, `pref_one`, `pref_two`, `pref_three`) VALUES ('2', '3', '3', '1', '2');
 
 # Contribution:
-Diego: TA Application/ Fetching position
-Eric: Dashboard view/ Profile
-Scott: Login/ Register/ Diagram/ Requirements
+* Diego: TA Application/ Fetching position
+
+* Eric: Dashboard view/ Profile
+
+* Scott: Login/ Register/ Diagram/ Requirements
 
