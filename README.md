@@ -1,55 +1,24 @@
-# Remake-Scott-Lab
+# CS Department TA Management System - Sprint 1
 
-# 1. Fix starting semester when choose status student
-![image](https://user-images.githubusercontent.com/85500156/223956465-490119b7-925b-4c26-9364-888a52162381.png)
+Project Overview: This is a system for Students to look and apply for TA positions, as well as for Faculty to post and receive applications. Currently, the system is in its infancy and its functionality is limited to registering a user, logging in, completing profile, filling out and submitting a general TA application, and all the components on the dashboard.
 
-# 2. Profile view after filled out:
+System Requirements: Java 1.8, Docker, MySQL, Scala, Play Framework
 
-After the user filled out -> I have set up the backend to update and it will show a different view. Our goal is to show some basic information such as
-** an avatar (Can be a placeholder for now)
-** Some basic informations
+Installation Instructions: Your database should have a 'CS4345' schema and have a username/password combination of root/123456 (if not you can change this in the backend to use another combination)
 
-![image](https://user-images.githubusercontent.com/85500156/223956593-f60803ae-0d68-41d7-94cf-a606bf3912b5.png)
+Usage Instructions: Provide instructions for using the system, including how to log in, how to add/edit/delete TAs, how to assign TAs to courses, and any other relevant functionality. Include screenshots and/or video demonstrations if possible.
 
-# 3. Complete the apply button
+Contributions: Diego Paredes, Eric Vu, Scott MacKenzie, Rich Beverley
 
-I have implemented the edit profile where it will have an animation to show the modal, you can use the same css styling class to show an apply modal so that:
+License: No licensing information
 
-## (From Canvas):
+Example SQL Insert Statements for database:
 
-* Submit a TA application: Provide a page for students to submit an application to a published TA position:
+Position:
+INSERT INTO `CS4345`.`position` (`position_id`, `course_title`, `faculty`, `pay`, `hours`) VALUES ('4', 'CS5555', 'Prof. Pete', '15', '20');
 
-Some example wording:
-Please submit your application to this open TA position using the form below. Note that some fields are mandatory.
+User:
+INSERT INTO `CS4345`.`user` (`id`, `username`, `password`, `firstname`, `lastname`, `research_area`, `title`, `position`, `affiliation`, `email`, `phone`, `fax`, `address`, `city`, `country`, `zipcode`, `comments`, `status`, `degree_plan`, `starting_semester`, `expected_graduation`, `answer_one`, `answer_two`) VALUES ('3', 'johnyapple', 'unicorns', 'Johnny', 'Appleseed', 'Cyber Security', 'Sir', 'Student', 'Southern Methodist University', 'johnny@apples.com', '1234567890', '0987654321', '123 Trip Lane', 'Dallas', 'United States', '75205', 'All bad things.', 'Student', 'BS-CS', 'Fall, 2021', 'Spring, 2025', 'Buttermilk Road', 'Tabasco');
 
-* General TA application form
-
-[Autofill, not editable] First name
-
-[Autofill, not editable] Last name
-
-[Autofill, not editable] Email
-
-[Autofill, not editable] Phone number
-
-[Autofill, not editable] Current degree plan
-
-[Autofill, not editable] Starting semester of the current program
-
-[Autofill, not editable] Expected semester to graduate
-
-[Mandatory, Autofill, editable] Courses taken before (multiple selections from a drop down list) (When saved, the changes will be saved/reflected to the student's personal information.)
-
-[Mandatory] 1st preference to be TA for (single selection from a drop down list - dynamically generated from open TA positions)
-
-[Mandatory] 1st preference to be TA for (single selection from a drop down list - from all courses offered by the department, saved in DB)
-
-[Optional] 2nd preference to be TA for (single selection from a drop down list - from all courses offered by the department, saved in DB)
-
-[Optional] 3rd preference to be TA for (single selection from a drop down list - from all courses offered by the department, saved in DB)
-
-[Optional] Courses NOT want to be a TA for (multiple selections from a drop down list - from all courses offered by the department, saved in DB)
-
-Resume (to upload in PDF)
-
-# 5. (From Canvas): For each use case, apply OOA methodology to produce use case diagram, class diagram, sequence diagram, and maybe also communication diagram.
+Application:
+INSERT INTO `CS4345`.`application` (`application_id`, `user_id`, `pref_one`, `pref_two`, `pref_three`) VALUES ('2', '3', '3', '1', '2');
